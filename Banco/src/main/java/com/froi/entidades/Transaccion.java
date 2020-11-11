@@ -9,7 +9,7 @@ package com.froi.entidades;
  *
  * @author froi-pc
  */
-public class Transaccion {
+public class Transaccion extends Entidad {
     
     private String codigo;
     private String cuentaDestino;

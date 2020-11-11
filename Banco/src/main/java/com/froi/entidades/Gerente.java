@@ -9,7 +9,7 @@ package com.froi.entidades;
  *
  * @author froi-pc
  */
-public class Gerente {
+public class Gerente extends Entidad {
     
     private String codigo;
     private String nombre;

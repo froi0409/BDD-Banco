@@ -6,6 +6,7 @@
 package com.froi.sevlets;
 
 import com.froi.banco.ArchivoDeEntrada;
+import com.froi.banco.LectorXml;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -39,7 +40,12 @@ public class LecturaArchivo extends HttpServlet {
         ArchivoDeEntrada lector = new ArchivoDeEntrada(request,"ruta"); //Enviamos al constructor la propiedad request
         path = lector.getPath();//obtenemos el path del archivo en el servidor
        
+        System.out.println("PATH " + path);
         
+        LectorXml lectxml = new LectorXml();
+        lectxml.read(path);
+        request.setAttribute("mensaje", "Archivo subido con éxito");
+        request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
     }
 
 }

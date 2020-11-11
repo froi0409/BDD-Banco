@@ -47,7 +47,7 @@ public class ArchivoDeEntrada {
             fileContent.transferTo(salida); //Convertimos el archivo de entrada al archivo reescrito
             File file = Paths.get(filePart.getSubmittedFileName()).toFile(); //Creamos el archivo en el servidot
 
-            path = file.getAbsolutePath().replace("/" + file.getName(), "") + nombreArchivo; //obtenemos el path completo del archivo dentro del servidor
+            path = file.getAbsolutePath().replace("/" + file.getName(), "") + "/" + nombreArchivo; //obtenemos el path completo del archivo dentro del servidor
 
             System.out.println(path); //Imprimimos en consola el path completo
             System.out.println(nombreArchivo);

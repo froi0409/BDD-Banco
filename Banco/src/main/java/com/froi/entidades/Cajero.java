@@ -9,7 +9,7 @@ package com.froi.entidades;
  *
  * @author froi-pc
  */
-public class Cajero {
+public class Cajero extends Entidad {
     
     private String codigo;
     private String nombre;
