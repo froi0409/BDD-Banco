@@ -4,6 +4,7 @@
     Author     : froi-pc
 --%>
 
+<%@page import="com.froi.banco.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+        Conexion conexion = new Conexion();
+        conexion.crearConexion();
+        %>
         <% response.sendRedirect("inicio.jsp"); %>
     </body>
 </html>
