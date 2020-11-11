@@ -4,6 +4,7 @@
     Author     : froi-pc
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,14 @@
             
         </div>
         <%@include file="inicio-barra-herramientas.html" %>
+        
+        <c:choose>
+            <c:when test = "${mensaje != null}">
+                <div class="alert alert-primary container mt-5" align="center" role="alert">
+                    ${mensaje}
+                </div>
+            </c:when>
+        </c:choose>
         
         <!-- Creamos la ventana del login -->
         <form action="AnalizadorDatosLogin" method="POST">

@@ -40,4 +40,12 @@ public class Conexion {
         return connection;
     }
     
+    public String getUser(){
+        return user;
+    }
+    
+    public String getPassword(){
+        return password;
+    }
+    
 }

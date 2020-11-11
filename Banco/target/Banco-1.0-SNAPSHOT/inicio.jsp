@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-3" align="right">
                     &nbsp;&nbsp;
-                    <form action="inicio-sesion.jsp" method="POST" class="form">
+                    <form action="AnalizadorDatosLogin" method="POST" class="form">
                         <button type="submit" class="btn btn-outline-light form">Iniciar Sesión</button>
                     </form>
                 </div>

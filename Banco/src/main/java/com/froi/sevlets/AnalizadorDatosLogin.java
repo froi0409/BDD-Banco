@@ -5,6 +5,8 @@
  */
 package com.froi.sevlets;
 
+import com.froi.banco.AnalizadorDeExistencia;
+import com.froi.banco.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -22,7 +24,7 @@ public class AnalizadorDatosLogin extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     *
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -32,7 +34,25 @@ public class AnalizadorDatosLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        AnalizadorDeExistencia analizador = new AnalizadorDeExistencia(Conexion.getConnection());
+        Conexion conexion = new Conexion();
         
+        String usuario = "";
+        String password = "";
+        
+        usuario += request.getParameter("usuario");
+        password += request.getParameter("password");
+       
+        if (!analizador.analizar()) {
+            
+            if (usuario.equals(conexion.getUser()) && password.equals(conexion.getPassword())) {
+                request.getRequestDispatcher("inicio-subir-archivo.jsp").forward(request, response); //Redirecciona a la pantalla de la subida de archivos, siempre que se ingrese el usuario y password del administrador de la base de datos
+            }
+            request.setAttribute("mensaje", "Sistema Vacío, favor contactar al Banco");
+            request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
+        } else {
+            
+        }
         
     }
 }
