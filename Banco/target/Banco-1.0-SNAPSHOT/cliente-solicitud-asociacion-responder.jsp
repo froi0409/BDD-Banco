@@ -4,6 +4,7 @@
     Author     : froi-pc
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,6 +18,14 @@
         <%@include file = "cabecera.jsp" %>
         <%@include file = "cliente-barra-herramientas.html" %>
 
+         <c:choose>
+            <c:when test = "${mensaje != null}">
+                <div class="alert alert-secondary container mt-5" align="center" role="alert">
+                    ${mensaje}
+                </div>
+            </c:when>
+        </c:choose>
+        
         <div class="container" align="center" style="margin-top: 100px" align="center">
                 <h1>Solicitudes de Asociación Pendientes</h1>
                 <table class="table table-bordered">

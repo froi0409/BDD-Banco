@@ -45,7 +45,7 @@ public class SolicitudDeAsociacionDatos extends HttpServlet {
         } else if (solicitud.estadoSolicitud(dpiCliente, cuenta) != null && solicitud.estadoSolicitud(dpiCliente, cuenta).equals("CUENTA ASOCIADA")){ //Verifica si la cuenta ya se encuentra asociada
             request.setAttribute("mensaje", "Error: La cuenta " + cuenta + " ya se encuentra asociada");
             request.getRequestDispatcher("cliente-solicitud-asociacion-datos.jsp").forward(request, response);
-        } else if (solicitud.intentoValido(cuenta, dpiCliente) > 3) { //Verifica si no se han sobrepasado los intentos
+        } else if (solicitud.intentoValido(cuenta, dpiCliente) > 2) { //Verifica si no se han sobrepasado los intentos
             request.setAttribute("mensaje", "Error: Se ha sobrepasado el límite de intentos para asociar la cuenta \"" + cuenta + "\"");
             request.getRequestDispatcher("cliente-solicitud-asociacion-datos.jsp").forward(request, response);
         } else if (solicitud.cuentaPropia(cuenta, dpiCliente)) { //Verifica si es una cuenta propia

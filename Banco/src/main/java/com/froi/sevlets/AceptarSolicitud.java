@@ -44,14 +44,10 @@ public class AceptarSolicitud extends HttpServlet {
         
         if (respuesta.aceptar(dpiSolicitante, cuentaSolicitada)) {
             request.getSession().setAttribute("mensajeRespuesta", "Asociación de cuenta " + cuentaSolicitada + " se realizó con éxito");
-            SolicitudDeAsociacionPendiente apoyo = new SolicitudDeAsociacionPendiente();
-            apoyo.doPost(request, response);
-            request.getRequestDispatcher("/SolicitudDeAsociacionPendiente").forward(request, response);
+            response.sendRedirect("/Banco/SolicitudDeAsociacionPendiente"); 
         } else {
             request.getSession().setAttribute("mensajeRespuesta", "Error al asociar la cuenta " + cuentaSolicitada + " se realizó con éxito");
-            SolicitudDeAsociacionPendiente apoyo = new SolicitudDeAsociacionPendiente();
-            apoyo.doPost(request, response);
-            request.getRequestDispatcher("/SolicitudDeAsociacionPendiente").forward(request, response);    
+            response.sendRedirect("/Banco/SolicitudDeAsociacionPendiente"); 
         }
         
     }

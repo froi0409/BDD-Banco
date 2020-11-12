@@ -67,7 +67,7 @@ public class EnviarSolicitud {
             preSt.setString(2, dpiCliente);
             ResultSet result = preSt.executeQuery();
             
-            if(!result.next()) {
+            if(result.next()) {
                 return result.getInt(1);
             } else {
                 return 0;
@@ -153,8 +153,10 @@ public class EnviarSolicitud {
         if(intentos == 0){
             update = "INSERT INTO CUENTA_ASOCIADA VALUES (?,?,'EN ESPERA'," + intentosAux + ")";
         } else {
-            update = "UPDATE CUENTA_ASOCIADA SET intentos = " + intentosAux + " WHERE cliente = ? AND cuenta = ?";
+            update = "UPDATE CUENTA_ASOCIADA SET intentos = " + intentosAux + ", estado='EN ESPERA' WHERE cliente = ? AND cuenta = ?";
         }
+        
+        System.out.println("\n\n" + intentos + "    " + update + "\n\n");
         
         try (PreparedStatement preSt = connection.prepareStatement(update)) {
             
