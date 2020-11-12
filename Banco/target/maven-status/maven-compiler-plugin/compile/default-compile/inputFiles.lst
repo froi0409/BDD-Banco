@@ -10,7 +10,10 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cliente/ObtenerDatosCliente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/SolicitudDeAsociacionDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/entidades/Gerente.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/SolicitudDeAsociacionPendiente.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cliente/SolicitudesPendientes.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/lectores/LectorGerente.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/SolicitudDeAsociacionEnviar.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/lectores/Lector.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/banco/LectorXml.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/AnalizadorDatosLogin.java

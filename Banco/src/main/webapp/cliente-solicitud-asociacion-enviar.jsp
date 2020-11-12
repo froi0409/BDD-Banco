@@ -26,12 +26,12 @@
                         <div class="form-froup mx-sm-5 pt3">
                         </div>
                         <div class="form-group mx-sm-5 pt-3" align="center">
-                            <label>Numero de la cuenta que desea asociar: </label><br><br>
+                            <label><b>Numero de la cuenta que desea asociar: </b></label><br><br>
                             <label><% out.print(request.getSession().getAttribute("cuentaSolicitada")); %></label>
                         </div>
                         <div class="form-group mx-sm-5 pt-3" align="center">
-                            <label>Propietario de La cuenta: </label><br><br>
-                            <label><% out.print(request.getSession().getAttribute("propietarioCuentaSolicitada")); %></label>
+                            <label><b>Propietario de La cuenta: </b></label><br><br>
+                            <label><% out.print(request.getSession().getAttribute("propietarioCuentaSolicitada")); %></label><br><br>
                         </div>
                         <div class="form-group mx-sm-5 pb-5"><!-- comment -->
 

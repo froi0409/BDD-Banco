@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file = "links.html"%>
-        <title>JSP Page</title>
+        <title>Solicitar Asociaciación</title>
     </head>
     <body>
         <%@include file = "cabecera.jsp" %>
