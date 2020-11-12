@@ -5,8 +5,10 @@
  */
 package com.froi.lectores;
 
+import com.froi.banco.Conexion;
 import com.froi.entidades.Estructura;
 import com.froi.entidades.Gerente;
+import com.froi.ingresadores.IngresadorGerente;
 import java.util.ArrayList;
 
 /**
@@ -16,9 +18,11 @@ import java.util.ArrayList;
 public class LectorGerente extends LectorArchivo {
 
     private Gerente gerente;
+    private ArrayList<String> errores;
     
-    public LectorGerente() {
+    public LectorGerente(ArrayList<String> errores) {
         gerente = new Gerente();
+        this.errores = errores;
     }
     
     /**
@@ -50,6 +54,9 @@ public class LectorGerente extends LectorArchivo {
             }
             
         }
+        
+        IngresadorGerente ingresador = new IngresadorGerente(Conexion.getConnection(), gerente);
+        ingresador.ingresoArchivo(errores);
         
     }
     

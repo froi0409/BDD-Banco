@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS TRANSACCION (
   cuenta_destino VARCHAR(45) NOT NULL,
   cuenta_origen VARCHAR(45),
   fecha DATE NOT NULL,
-  hora DATETIME NOT NULL,
+  hora TIME NOT NULL,
   tipo VARCHAR(45) NOT NULL,
   monto DECIMAL(11,2) NOT NULL,
   cajero VARCHAR(45),

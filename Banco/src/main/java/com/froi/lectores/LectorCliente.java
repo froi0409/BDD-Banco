@@ -30,7 +30,7 @@ public class LectorCliente {
 
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
     private ArrayList<Cuenta> listaCuentas = new ArrayList<>();
-    private ArrayList<String> errores = new ArrayList<String>();
+    private ArrayList<String> errores;
     private int cont = 0;
     
     public LectorCliente(ArrayList<String> errores) {

@@ -5,7 +5,9 @@
  */
 package com.froi.banco;
 
+import com.froi.entidades.Cajero;
 import com.froi.entidades.Gerente;
+import com.froi.entidades.Transaccion;
 import com.froi.lectores.Lector;
 import com.froi.lectores.*;
 import java.util.ArrayList;
@@ -29,12 +31,20 @@ public class LectorXml {
             Lector lector = new Lector();
 
             Gerente gerente = new Gerente();
-            LectorGerente lecGerente = new LectorGerente();
+            LectorGerente lecGerente = new LectorGerente(errores);
             lector.leerTag(path, "GERENTE", lecGerente, gerente);
 
             LectorCliente lecCliente = new LectorCliente(errores);
             lecCliente.read(path);
             
+            
+            Cajero cajero = new Cajero();
+            LectorCajero lecCajero = new LectorCajero(errores);
+            lector.leerTag(path, "CAJERO", lecCajero, cajero);
+            
+            Transaccion transaccion = new Transaccion();
+            LectorTransaccion lecTransaccion = new LectorTransaccion(errores);
+            lector.leerTag(path, "TRANSACCION", lecTransaccion, transaccion);
 //            CitaMedica cita = new CitaMedica();
 //            LectorCita lecCita = new LectorCita();
 //            lector.leerTag(path, "cita", lecCita, cita);
