@@ -7,7 +7,8 @@ package com.froi.banco;
 
 import com.froi.entidades.Gerente;
 import com.froi.lectores.Lector;
-import com.froi.lectores.LectorGerente;
+import com.froi.lectores.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,12 +25,16 @@ public class LectorXml {
     public void read(String path){
         try {
             
+            ArrayList<String> errores = new ArrayList<>();
             Lector lector = new Lector();
 
             Gerente gerente = new Gerente();
             LectorGerente lecGerente = new LectorGerente();
             lector.leerTag(path, "GERENTE", lecGerente, gerente);
 
+            LectorCliente lecCliente = new LectorCliente(errores);
+            lecCliente.read(path);
+            
 //            CitaMedica cita = new CitaMedica();
 //            LectorCita lecCita = new LectorCita();
 //            lector.leerTag(path, "cita", lecCita, cita);
