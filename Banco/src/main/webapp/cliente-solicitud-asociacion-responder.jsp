@@ -17,7 +17,7 @@
         <%@include file = "cabecera.jsp" %>
         <%@include file = "cliente-barra-herramientas.html" %>
 
-        <div class="container" align="center" style="margin-top: 100px">
+        <div class="container" align="center" style="margin-top: 100px" align="center">
                 <h1>Solicitudes de Asociación Pendientes</h1>
                 <table class="table table-bordered">
                     <thead>
@@ -25,6 +25,8 @@
                             <th scope="col">Cuenta Propia</th>
                             <th scope="col">Cliente que Solicita</th>
                             <th scope="col">Intentos</th>
+                            <th scope="col" colspan="2">Acción</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +38,8 @@
                             out.println("<td>" + element[0] + "</td>");
                             out.println("<td>" + element[1] + "</td>");
                             out.println("<td>" + element[2] + "</td>");
+                            out.println("<td> <form method=\"POST\" action=\"AceptarSolicitud\"><button type = \"submit\" class=\"btn btn-danger\" value=\"" + element[3] + "-" + element[0] + "\" name=\"cuenta\">Aceptar</button></td></form>");
+                            out.println("<td> <form method=\"POST\" action=\"RechazarSolicitud\"><button type = \"submit\" class=\"btn btn-outline-danger\" value=\"" + element[3] + "-" + element[0] + "\" name=\"cuenta\">Rechazar</button></td></form>");
                             out.println("</tr>");  
                         }
 

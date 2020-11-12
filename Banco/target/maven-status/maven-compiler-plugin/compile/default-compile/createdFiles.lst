@@ -9,6 +9,7 @@ com/froi/banco/ArchivoDeEntrada.class
 com/froi/cliente/EnviarSolicitud.class
 com/froi/cuenta/ObtenerDatosCuenta.class
 com/froi/ingresadores/IngresadorGerente.class
+com/froi/sevlets/AceptarSolicitud.class
 com/froi/entidades/Cajero.class
 com/froi/lectores/Lector.class
 com/froi/sevlets/SolicitudDeAsociacionEnviar.class

@@ -30,7 +30,7 @@ public class SolicitudesPendientes {
     private void pendientes(String cuenta, ArrayList<String[]> datos) {
         ArrayList<String[]> lista = new ArrayList<String[]>();
         
-        String query = "SELECT C.cuenta,CL.nombre,C.intentos FROM CUENTA_ASOCIADA C INNER JOIN CLIENTE CL ON CL.dpi = C.cliente WHERE C.cuenta = ? AND C.estado = 'EN ESPERA'";
+        String query = "SELECT C.cuenta,CL.nombre,C.intentos,CL.dpi FROM CUENTA_ASOCIADA C INNER JOIN CLIENTE CL ON CL.dpi = C.cliente WHERE C.cuenta = ? AND C.estado = 'EN ESPERA'";
         
         try (PreparedStatement preSt = connection.prepareStatement(query)) {
             
@@ -38,11 +38,12 @@ public class SolicitudesPendientes {
             ResultSet result = preSt.executeQuery();
             
             while (result.next()) {
-                String[] atributos = new String[3];
+                String[] atributos = new String[4];
                 
                 atributos[0] = result.getString(1);
                 atributos[1] = result.getString(2);
                 atributos[2] = result.getString(3);
+                atributos[3] = result.getString(4);
                
                 datos.add(atributos);
             }
