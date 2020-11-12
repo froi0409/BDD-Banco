@@ -24,6 +24,10 @@ public class IngresadorTransaccion extends Ingresador {
         this.transaccion = transaccion;
     }
 
+    /**
+     * Permite ingresar una entidad transaccion, a partir del archivo XML de entrada
+     * @param errores ArrayList que contiene los errores que se pueden presentar en el ingreso al sistema
+     */
     @Override
     public void ingresoArchivo(ArrayList<String> errores) {
         

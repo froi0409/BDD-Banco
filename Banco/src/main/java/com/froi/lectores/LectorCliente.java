@@ -37,6 +37,11 @@ public class LectorCliente {
         this.errores = errores;
     }
     
+    /**
+     * Método (exclusivo de la entidad cliente y cuenta) que permite identificar a los clientes y cuentas que contiene el archivo XML de entrada.
+     * Asímismo, ingresa a las entidades (clientes y cuentas) encontradas en el archivo XML al sistema
+     * @param path Ruta del archivo XML de entrada (El archivo debe estar dentro del servidor)
+     */
     public void read (String path){ 
     
         try {
@@ -104,8 +109,6 @@ public class LectorCliente {
                                         contCuentas++;
                                         System.out.println(contCuentas + "  " + kid.getFirstChild().getNodeName());
                                     }
-                                    
-                                    
                                     
                                 }
                                 

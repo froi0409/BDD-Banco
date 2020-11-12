@@ -21,6 +21,10 @@ public class AnalizadorDeExistencia {
         this.connection = connection;
     }
     
+    /**
+     * Analiza si la base de datos está llena o vacía
+     * @return returna true si hay datos en el sistema, de lo contrario retorna false;
+     */
     public boolean analizar(){
     
         String query = "SELECT COUNT(*) FROM GERENTE";

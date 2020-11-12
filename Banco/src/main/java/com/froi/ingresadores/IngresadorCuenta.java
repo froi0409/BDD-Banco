@@ -24,6 +24,10 @@ public class IngresadorCuenta extends Ingresador {
         this.cuenta = cuenta;
     }
     
+    /**
+     * Permite ingresar una cuenta (perteneciente a un cliente) a partir del archivo de entrada
+     * @param errores ArrayList que contiene los errores que se puedan dar durante el ingreso a la base de datos
+     */
     @Override
     public void ingresoArchivo(ArrayList<String> errores) {
     

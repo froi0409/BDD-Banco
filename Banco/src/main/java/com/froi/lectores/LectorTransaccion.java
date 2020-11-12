@@ -25,6 +25,10 @@ public class LectorTransaccion extends LectorArchivo {
         this.errores = errores;
     }
 
+    /**
+     * Convierte una ArrayList de atributos a una Entidad Transaccion
+     * @param atributos ArrayList que contiene los atributos que debe tener una Transacción
+     */
     @Override
     public void convertToEntidad(ArrayList<Estructura> atributos) {
         

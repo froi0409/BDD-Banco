@@ -24,6 +24,10 @@ public class IngresadorGerente extends Ingresador {
         this.connection = connection;
     }
     
+    /**
+     * Permite ingresar a un gerente, a partir del archivo XML de entrada
+     * @param errores ArrayList que contiene los errores que se presenten durante el ingreso al sistema
+     */
     @Override
     public void ingresoArchivo(ArrayList<String> errores) {
         
