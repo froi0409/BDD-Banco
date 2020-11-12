@@ -38,8 +38,16 @@ public class SolicitudDeAsociacionPendiente extends HttpServlet {
         SolicitudesPendientes pendientes = new SolicitudesPendientes(Conexion.getConnection());
         String dpiCliente = request.getSession().getAttribute("dpi").toString();
         ArrayList<String[]> datos = pendientes.listar(dpiCliente);
-        request.setAttribute("lista", datos);
-        request.getRequestDispatcher("cliente-solicitud-asociacion-responder.jsp").forward(request, response);
+        
+        if (request.getSession().getAttribute("mensajeRespuesta") == null){
+            request.setAttribute("lista", datos);
+            request.getRequestDispatcher("cliente-solicitud-asociacion-responder.jsp").forward(request, response);
+        } else {
+            request.setAttribute("lista", datos);
+            request.setAttribute("mensaje", request.getSession().getAttribute("mensajeRespuesta"));
+            request.getSession().removeAttribute("mensajeRespuesta");
+            request.getRequestDispatcher("cliente-solicitud-asociacion-responder.jsp").forward(request, response);
+        }
         
     }
 

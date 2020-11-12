@@ -14,6 +14,7 @@ com/froi/entidades/Cajero.class
 com/froi/lectores/Lector.class
 com/froi/sevlets/SolicitudDeAsociacionEnviar.class
 com/froi/ingresadores/IngresadorCuenta.class
+com/froi/cliente/RespuestaSolicitud.class
 com/froi/sevlets/CerrarSesion.class
 com/froi/ingresadores/IngresadorCajero.class
 com/froi/entidades/Transaccion.class
@@ -28,6 +29,7 @@ com/froi/entidades/Estructura.class
 com/froi/lectores/LectorTransaccion.class
 com/froi/ingresadores/Ingresador.class
 com/froi/sevlets/AnalizadorDatosLogin.class
+com/froi/sevlets/RechazarSolicitud.class
 com/froi/entidades/Cliente.class
 com/froi/lectores/LectorArchivo.class
 com/froi/banco/Conexion.class

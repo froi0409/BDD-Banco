@@ -72,7 +72,16 @@ public class RechazarSolicitud extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println(request.getParameter("cuenta"));
+                System.out.println(request.getParameter("cuenta"));
+        String entrada = request.getParameter("cuenta");
+        
+        String[] partes = entrada.split("-");
+        String dpiSolicitante = partes[0];
+        String cuentaSolicitada = partes[1];
+        
+        System.out.println("Se Rechazará al DPI: " + dpiSolicitante + "   con la cuenta: " + cuentaSolicitada);
+
+        
         processRequest(request, response);
     }
 
