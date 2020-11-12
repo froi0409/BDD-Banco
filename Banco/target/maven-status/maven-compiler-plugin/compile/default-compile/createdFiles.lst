@@ -1,12 +1,17 @@
 com/froi/entidades/Entidad.class
+com/froi/sevlets/SolicitudDeAsociacionDatos.class
 com/froi/lectores/LectorCajero.class
+com/froi/cliente/ObtenerDatosCliente.class
 com/froi/banco/LectorXml.class
 com/froi/entidades/Cuenta.class
+com/froi/banco/AnalizadorCredenciales.class
 com/froi/banco/ArchivoDeEntrada.class
+com/froi/cliente/EnviarSolicitud.class
 com/froi/ingresadores/IngresadorGerente.class
 com/froi/entidades/Cajero.class
 com/froi/lectores/Lector.class
 com/froi/ingresadores/IngresadorCuenta.class
+com/froi/sevlets/CerrarSesion.class
 com/froi/ingresadores/IngresadorCajero.class
 com/froi/entidades/Transaccion.class
 com/froi/lectores/LectorGerente.class

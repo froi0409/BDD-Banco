@@ -48,4 +48,28 @@ public class AnalizadorDeExistencia {
     
     }
     
+    public boolean credenciales(String tabla, String usuario, String password) {
+        
+        String query = "SELECT codigo,password FROM " + tabla + " WHERE codigo = ? AND password = ?";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, usuario);
+            preSt.setString(2, password);
+            
+            ResultSet result = preSt.executeQuery();
+            
+            if(result.next()) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error Análisis de Credenciales: " + e.getMessage());
+            return false;
+        }
+         
+    }
+    
 }

@@ -46,14 +46,12 @@
                         </div>
                         
                         <div class="form-group mx-sm-4 pt-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="ruta" id="ruta">
-                                <label class="custom-file-label" for="customFile">Archivo.xml</label>
-                            </div>
+                            <label>Seleccione la ruta del archivo<br></label>
+                            <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir"/>
                         </div>
                         
                         <div class="form-group mx-sm-4 pb-5">
-                            <input type="submit" class="btn btn-danger ingresar btn-block" />
+                            <input type="submit" class="btn btn-danger ingresar btn-block" value="Subir Archivo"/>
                         </div>
                         
                     </div>

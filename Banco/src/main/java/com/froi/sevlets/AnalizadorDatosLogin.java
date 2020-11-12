@@ -7,6 +7,7 @@ package com.froi.sevlets;
 
 import com.froi.banco.AnalizadorDeExistencia;
 import com.froi.banco.Conexion;
+import com.froi.cliente.ObtenerDatosCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -43,14 +44,36 @@ public class AnalizadorDatosLogin extends HttpServlet {
         usuario += request.getParameter("usuario");
         password += request.getParameter("password");
        
-        if (!analizador.analizar()) {
+        if (!analizador.analizar()) { //analiza si la base de datos está vacia
             
-            if (usuario.equals(conexion.getUser()) && password.equals(conexion.getPassword())) {
+            if (usuario.equals(conexion.getUser()) && password.equals(conexion.getPassword())) { //analiza si el usuario y contraseña corresponden a los datos del sistema
                 request.getRequestDispatcher("inicio-subir-archivo.jsp").forward(request, response); //Redirecciona a la pantalla de la subida de archivos, siempre que se ingrese el usuario y password del administrador de la base de datos
             }
             request.setAttribute("mensaje", "Sistema Vacío, favor contactar al Banco");
             request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
         } else {
+            if (usuario.equals("null") && password.equals("null")) {
+                request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
+            }
+            
+            if (analizador.credenciales("CLIENTE", usuario, password)) { //analiza si las credenciales corresponden a las de un cliente
+                ObtenerDatosCliente obtener = new ObtenerDatosCliente(Conexion.getConnection());
+                
+                String dpi = obtener.obtenerDato("dpi", usuario);
+                
+                request.getSession().setAttribute("dpi", dpi);
+                request.getSession().setAttribute("usuario", usuario);
+                request.getRequestDispatcher("cliente-inicio.jsp").forward(request, response);
+            } else if (analizador.credenciales("CAJERO", usuario, password)) { //analiza si las credenciales correspondena a las de un cajero
+                request.getSession().setAttribute("usuario", usuario);
+                request.getRequestDispatcher("cajero-inicio.jsp").forward(request, response);
+            } else if (analizador.credenciales("GERENTE", usuario, password)) { //analiza si las credenciales corresponden a las de un gerente
+                request.getSession().setAttribute("usuario", usuario);
+                request.getRequestDispatcher("gerente-inicio.jsp").forward(request, response);
+            } else {
+                request.setAttribute("mensaje", "Usuario o contraseña incorrecta, favor de revisar sus datos.");
+                request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
+            }
             
         }
         
