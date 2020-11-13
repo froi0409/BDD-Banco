@@ -21,6 +21,12 @@ public class ObtenerDatosCajero {
         this.connection = connection;
     }
     
+    /**
+     * Método que nos permite comprobar si existe algún otro cajero con las características solicitadas
+     * @param campo Campo que se desea consultar
+     * @param dato Dato que se desea consultar
+     * @return Retorna true si existe algún cajero con dichas características, de lo contrario retorna false
+     */
     public boolean existsOther(String campo, String dato) {
         
         String query = "SELECT COUNT(*) FROM CAJERO WHERE " + campo + " = ?";

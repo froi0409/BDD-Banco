@@ -5,6 +5,9 @@
  */
 package com.froi.banco;
 
+import com.froi.cajero.ObtenerDatosCajero;
+import com.froi.cliente.ObtenerDatosCliente;
+import com.froi.gerente.ObtenerDatosGerente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -70,6 +73,24 @@ public class AnalizadorDeExistencia {
             return false;
         }
          
+    }
+    
+    public boolean codigo(String codigo){
+        
+        ObtenerDatosCliente datosCliente = new ObtenerDatosCliente(connection);
+        ObtenerDatosCajero datosCajero = new ObtenerDatosCajero(connection);
+        ObtenerDatosGerente datosGerente = new ObtenerDatosGerente(connection);
+        
+        if (datosCliente.obtenerDato("codigo", codigo) != null){
+            return true;
+        } else if (datosCajero.existsOther("codigo", codigo)) {
+            return true;
+        } else if (datosGerente.existsOther("codigo", codigo)) {
+            return true;
+        } else {
+            return false;
+        }
+        
     }
     
 }

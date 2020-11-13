@@ -107,4 +107,33 @@ public class ObtenerDatosCuenta {
         
     }
     
+    /**
+     * Comprueba si existe alguna otra cuenta con tales características
+     * @param campo Campo que se desea consultar
+     * @param dato Dato que se desea consultar
+     * @return retorna true si existe otra cuenta con esas características
+     */
+    public boolean existsOther(String campo, String dato) {
+        
+        String query = "SELECT COUNT(*) FROM CUENTA WHERE " + campo + " = ?";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, dato);
+            ResultSet result = preSt.executeQuery();
+            result.next();
+            
+            if(result.getInt(1) == 0) {
+                return false;
+            } else {
+                return true;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error exists other: " + e.getMessage());
+            return true;
+        }
+        
+    }
+    
 }

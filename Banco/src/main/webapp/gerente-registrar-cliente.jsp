@@ -26,7 +26,7 @@
         </c:choose>
         
         <!-- Creamos la ventana de registro de cliente -->
-        <form action="" method="POST">
+        <form action="ClienteVerDatos" method="POST" enctype="multipart/form-data">
             <div class="pt-2 mt-5 mr-2"></div>
             <div class="container formulario pt-2"> 
                 <div class="row justify-content-center pt-1 mt-5 mr-1">
@@ -45,9 +45,13 @@
                     
                 </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label for="dpiCliente">DPI:</label>
                         <input type="number" class="form-control" placeholder="DPI del Cliente" name="dpiCliente" required/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="codigoCliente">Codigo:</label>
+                        <input type="text" class="form-control" placeholder="Código del Cliente" name="codigoCliente" required/>
                     </div>
                 </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1">
@@ -64,12 +68,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="dpiPdfCliente">PDF del DPI:</label><br>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                    <label id="casillaFileName" class="custom-file-label" ></label>
-                                <input type="file" class="custom-file-input" name="dpiPdfCliente" accept="image/*">
-                            </div>
-                        </div>
+                        <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir"/>
                     </div>
                </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">

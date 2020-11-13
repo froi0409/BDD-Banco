@@ -5,6 +5,7 @@
  */
 package com.froi.sevlets;
 
+import com.froi.banco.AnalizadorDeExistencia;
 import com.froi.banco.Conexion;
 import com.froi.banco.GeneradorContraseña;
 import com.froi.cajero.ObtenerDatosCajero;
@@ -41,7 +42,7 @@ public class CajeroVerDatos extends HttpServlet {
         String codigo = request.getParameter("codigoCajero");
         String dpi = request.getParameter("dpiCajero");
         
-        ObtenerDatosCajero obtenerDatos = new ObtenerDatosCajero(Conexion.getConnection());
+        AnalizadorDeExistencia existencia = new AnalizadorDeExistencia(Conexion.getConnection());
         
         request.getSession().setAttribute("codigoCajero", request.getParameter("codigoCajero"));
         request.getSession().setAttribute("nombreCajero", request.getParameter("nombreCajero"));
@@ -51,11 +52,8 @@ public class CajeroVerDatos extends HttpServlet {
         request.getSession().setAttribute("sexoCajero", request.getParameter("sexoCajero"));
         request.getSession().setAttribute("passwordCajero", contraseña);
         
-        if(obtenerDatos.existsOther("codigo", codigo)) {
-            request.setAttribute("mensaje", "Error: Ya existe un cajero con el código ingresado");
-            request.getRequestDispatcher("gerente-registrar-cajero.jsp").forward(request, response);
-        } else if (obtenerDatos.existsOther("dpi", dpi)) {
-            request.setAttribute("mensaje", "Error: Ya existe un cajero con el DPI ingresado");
+        if(existencia.codigo(codigo)) {
+            request.setAttribute("mensaje", "Error: Ya existe un usuario con el código ingresado");
             request.getRequestDispatcher("gerente-registrar-cajero.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("gerente-registrar-cajero-confirmar.jsp").forward(request, response);
