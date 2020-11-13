@@ -45,10 +45,7 @@ public class LectorXml {
             Transaccion transaccion = new Transaccion();
             LectorTransaccion lecTransaccion = new LectorTransaccion(errores);
             lector.leerTag(path, "TRANSACCION", lecTransaccion, transaccion);
-//            CitaMedica cita = new CitaMedica();
-//            LectorCita lecCita = new LectorCita();
-//            lector.leerTag(path, "cita", lecCita, cita);
-//            
+
         } catch (Exception ex) {
             Logger.getLogger(LectorXml.class.getName()).log(Level.SEVERE, null, ex);
         }

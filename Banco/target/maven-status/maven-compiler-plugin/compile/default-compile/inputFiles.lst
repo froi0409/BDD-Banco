@@ -10,6 +10,7 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/banco/AnalizadorCredenciales.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/ingresadores/IngresadorCliente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cliente/ObtenerDatosCliente.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/TransaccionConfirmar.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/SolicitudDeAsociacionDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/entidades/Gerente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/SolicitudDeAsociacionPendiente.java

@@ -6,6 +6,7 @@
 package com.froi.transaccion;
 
 import com.froi.cuenta.ObtenerDatosCuenta;
+import com.froi.entidades.Transaccion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -28,25 +29,35 @@ public class TransaccionPortal {
      * @param dinero Cantidad monetaria que será transferida
      * @return retorna true si la transferencia se pudo llevar a cabo
      */
-    public boolean realizarTransferencia(String cuentaOrigen, String cuentaDestino, double dinero) {
+    public boolean realizarTransferencia(double dinero, Transaccion transaccion) {
         
         ObtenerDatosCuenta datosCuenta = new ObtenerDatosCuenta(connection);
-        double dineroCuentaOrigen = Double.parseDouble(datosCuenta.obtenerDato("credito", cuentaOrigen)) - dinero;
-        double dineroCuentaDestino = Double.parseDouble(datosCuenta.obtenerDato("credito", cuentaDestino)) + dinero;
+        double dineroCuentaOrigen = Double.parseDouble(datosCuenta.obtenerDato("credito", transaccion.getCuentaOrigen())) - dinero;
+        double dineroCuentaDestino = Double.parseDouble(datosCuenta.obtenerDato("credito", transaccion.getCuentaDestino())) + dinero;
         
         String update = "UPDATE CUENTA SET credito = ? WHERE codigo = ?";
+        String insert = "INSERT INTO TRANSACCION VALUES (?,?,?,CURDATE(),CURTIME(),?,?,NULL)";
         
         try (PreparedStatement preSt = connection.prepareStatement(update);
-                PreparedStatement preSt2 = connection.prepareStatement(update)) {
+                PreparedStatement preSt2 = connection.prepareStatement(update);
+                PreparedStatement preSt3 = connection.prepareStatement(insert)) {
             
             preSt.setDouble(1, dineroCuentaOrigen);
-            preSt.setString(2, cuentaOrigen);
+            preSt.setString(2, transaccion.getCuentaOrigen());
             
             preSt2.setDouble(1, dineroCuentaDestino);
-            preSt2.setString(2, cuentaDestino);
-                    
+            preSt2.setString(2, transaccion.getCuentaDestino());
+            
             preSt.executeUpdate();
             preSt2.executeUpdate();
+            
+            preSt3.setString(1, transaccion.getCodigo());
+            preSt3.setString(2, transaccion.getCuentaDestino());
+            preSt3.setString(3, transaccion.getCuentaOrigen());
+            preSt3.setString(4, transaccion.getTipo());
+            preSt3.setDouble(5, transaccion.getMonto());
+            
+            preSt3.executeUpdate();
             
             return true;
             

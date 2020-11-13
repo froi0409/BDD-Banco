@@ -57,9 +57,6 @@ public class Lector {
                     for(int j = 0; j < hijos.getLength(); j++){
                         
                         Node hijo = hijos.item(j);
-                        if(hijo.getNodeName().equals("CUENTA")) {
-                            
-                        }
                         
                         if(hijo.getNodeType() == Node.ELEMENT_NODE) {
                             
@@ -84,7 +81,7 @@ public class Lector {
         } catch (Exception ex) {
             Logger.getLogger(LectorArchivo.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+        atributos.clear();
     }
 
     /**

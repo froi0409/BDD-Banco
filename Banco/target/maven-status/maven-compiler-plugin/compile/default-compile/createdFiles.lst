@@ -36,6 +36,7 @@ com/froi/sevlets/AnalizadorDatosLogin.class
 com/froi/sevlets/RechazarSolicitud.class
 com/froi/entidades/Cliente.class
 com/froi/lectores/LectorArchivo.class
+com/froi/sevlets/TransaccionConfirmar.class
 com/froi/banco/Conexion.class
 com/froi/ingresadores/IngresadorCliente.class
 com/froi/banco/AnalizadorDeExistencia.class
