@@ -55,7 +55,24 @@ public class IngresadorCuenta extends Ingresador {
 
     @Override
     public boolean ingresoNormal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        String insert = "INSERT INTO CUENTA VALUES (?,CURDATE(),?,?)";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(insert)) {
+            
+            preSt.setString(1, cuenta.getCodigo());
+            preSt.setDouble(2, cuenta.getCredito());
+            preSt.setString(3, cuenta.getCliente());
+            
+            preSt.executeUpdate();
+            
+            return true;
+            
+        } catch (Exception e) {
+            System.out.println("Error IA Cuenta: " + e.getMessage());
+            return false;
+        }
+        
     }
     
     

@@ -30,7 +30,7 @@
             <div class="pt-2 mt-5 mr-2"></div>
             <div class="container formulario pt-2"> 
                 <div class="row justify-content-center pt-1 mt-5 mr-1">
-                    <h1>Registrar Cajero</h1>
+                    <h1>Registrar Cliente</h1>
                 </div>
                 <div class="row justify-content-center ml-2 pt- mt-5 mr-1"> <!-- Utilizamos el sistema de filas de bootstrap -->
                     
@@ -68,13 +68,13 @@
                     </div>
                     <div class="col-md-3">
                         <label for="dpiPdfCliente">PDF del DPI:</label><br>
-                        <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir"/>
+                        <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir" required/>
                     </div>
                </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">
                     <div class="col-md-5" align="center">
                         <div><label>* Todos los campos son obligatorios</label><br></div>
-                        <input type="submit" value="Registrar Cajero" class="btn btn-danger"/>
+                        <input type="submit" value="Registrar Cliente" class="btn btn-danger"/>
                     </div>
                 </div>
 

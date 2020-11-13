@@ -64,7 +64,29 @@ public class IngresadorCliente extends Ingresador {
 
     @Override
     public boolean ingresoNormal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        String insert = "INSERT INTO CLIENTE VALUES (?,?,?,?,?,?,?,?)";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(insert)) {
+            
+            preSt.setString(1, cliente.getDpi());
+            preSt.setString(2, cliente.getCodigo());
+            preSt.setString(3, cliente.getNombre());
+            preSt.setString(4, cliente.getBirth());
+            preSt.setString(5, cliente.getDireccion());
+            preSt.setString(6, cliente.getSexo());
+            preSt.setString(7, cliente.getDpiPdf());
+            preSt.setString(8, cliente.getPassword());
+            
+            preSt.executeUpdate();
+            
+            return true;
+            
+        } catch (Exception e) {
+            System.out.println("Error al Tratar de ingresar al cliente: " + e.getMessage());
+            return false;
+        }
+        
     }
     
     

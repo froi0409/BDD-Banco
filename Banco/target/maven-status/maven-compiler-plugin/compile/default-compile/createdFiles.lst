@@ -32,6 +32,7 @@ com/froi/sevlets/TransaccionInicio.class
 com/froi/sevlets/Apoyo.class
 com/froi/entidades/Cajero.class
 com/froi/lectores/Lector.class
+com/froi/sevlets/ClienteRegistrar.class
 com/froi/sevlets/CerrarSesion.class
 com/froi/entidades/Transaccion.class
 com/froi/sevlets/SolicitudDeAsociacionPendiente.class

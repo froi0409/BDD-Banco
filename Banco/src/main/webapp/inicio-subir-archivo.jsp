@@ -47,7 +47,7 @@
                         
                         <div class="form-group mx-sm-4 pt-3">
                             <label>Seleccione la ruta del archivo<br></label>
-                            <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir"/>
+                            <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir required"/>
                         </div>
                         
                         <div class="form-group mx-sm-4 pb-5">

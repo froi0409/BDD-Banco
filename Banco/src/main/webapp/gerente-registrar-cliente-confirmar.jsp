@@ -17,54 +17,65 @@
         <%@include file = "gerente-barra-herramientas.html" %>
 
         <!-- Creamos Ventana de registro de Cajero -->
-        <form action="CajeroRegistrar" method="POST">
+        <form action="ClienteRegistrar" method="POST">
             <div class="mt-5"></div>
-            <div class="container formulario"> 
+            <div class="container formulario mb-5"> 
                 <div class="row justify-content-center mt-5">
                     <h1>Verificar Datos del Nuevo Cliente</h1>
                 </div>
                 <div class="row justify-content-center ml-2 pt- mt-5 mr-1"> <!-- Utilizamos el sistema de filas de bootstrap -->
                     
-                    <div class="col-md-4">
-                        <label for="nombreCajero"><b>Nombre:</b></label><br>
+                    <div class="col-md-4" align="center">
+                        <label for="nombreCliente"><b>Nombre:</b></label><br>
                         <% out.println(request.getSession().getAttribute("nombreCliente").toString()); %>
                     </div>
-                    <div class="col-md-4">
-                        <label for="codigoCajero"><b>Codigo</b><br></label><br>
+                    <div class="col-md-4" align="center">
+                        <label for="codigoCliente"><b>Codigo</b><br></label><br>
                         <% out.println(request.getSession().getAttribute("codigoCliente").toString()); %>
                     </div>
                 </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1">
-                    <div class="col-md-4">
-                        <label for="dpiCajero"><b>DPI:</b><br></label><br>
+                    <div class="col-md-4" align="center">
+                        <label for="dpiCliente"><b>DPI:</b><br></label><br>
                         <% out.println(request.getSession().getAttribute("dpiCliente").toString()); %>
                     </div>
-                    <div class="col-md-4">
-                        <label for="passwordCajero"><b>Contraseña (Provisional):</b><br></label><br>
+                    <div class="col-md-4" align="center">
+                        <label for="passwordCliente"><b>Contraseña (Provisional):</b><br></label><br>
                         <% out.println(request.getSession().getAttribute("passwordCliente").toString()); %>
                     </div>
                 </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1">
-                    <div class="col-md-4">
-                        <label for="direccionCajero"><b>Dirección</b><br></label><br>
-                        <% out.println(request.getSession().getAttribute("direccionCajero").toString()); %>
+                    <div class="col-md-4" align="center">
+                        <label for="direccionCliente"><b>Dirección</b><br></label><br>
+                        <% out.println(request.getSession().getAttribute("direccionCliente").toString()); %>
                     </div>
-                    <div class="col-md-2">
-                        <label for="turnoCajero"><b>Turno</b><br></label><br>
-                        <% out.println(request.getSession().getAttribute("turnoCajero").toString()); %>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="sexoCajero"><b>Sexo</b><br></label><br>
-                        <% out.println(request.getSession().getAttribute("sexoCajero").toString()); %>
+                    <div class="col-md-4" align="center">
+                        <label for="sexoCliente"><b>Sexo:</b><br></label><br>
+                        <% out.println(request.getSession().getAttribute("sexoCliente").toString()); %>
                     </div>
                 </div>
-                <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">
+                <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1">
                     <div class="col-md-4" align="center">
-                        <div><label>¿Desea continuar con el registro del cajero?</label><br></div>
+                        <label for="fechaNacimientoCliente"><b>Fecha de Nacimiento</b><br></label><br>
+                        <% out.println(request.getSession().getAttribute("fechaNacimientoCliente").toString()); %>
+                    </div>
+                    <div class="col-md-4" align="center">
+                        <label for="codigoCuenta"><b>Número de Primera Cuenta:</b><br></label><br>
+                        <% out.println(request.getSession().getAttribute("codigoCuenta").toString()); %>
+                    </div>
+                </div>
+                    <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">
+                        <div class="col-md-4"><label>¿Desea continuar con el registro del cliente?</label><br></div>
+                        
+                    </div>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-2 justify-content-end" align="center">
                         <input type="submit" value="Continuar" class="btn btn-danger"/>
                     </div>
+                    <div class="col-md-2 justify-content-start" align="center">
+                        <a class="btn btn-outline-danger" href="gerente-registrar-cliente.jsp" role="button">Cancelar</a>
+                    </div>
                 </div>
-
             </div>
         </form>
         
