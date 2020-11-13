@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public abstract class Ingresador {
     
-    public abstract void ingresoArchivo(ArrayList<String> errores);
+    public abstract boolean ingresoArchivo(ArrayList<String> errores);
     
-    public abstract void ingresoNormal();
+    public abstract boolean ingresoNormal();
     
 }

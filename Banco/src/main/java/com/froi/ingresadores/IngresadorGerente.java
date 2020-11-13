@@ -27,9 +27,10 @@ public class IngresadorGerente extends Ingresador {
     /**
      * Permite ingresar a un gerente, a partir del archivo XML de entrada
      * @param errores ArrayList que contiene los errores que se presenten durante el ingreso al sistema
+     * @return retorna true si la entidad es ingresada con éxito, de lo contrario retorna false
      */
     @Override
-    public void ingresoArchivo(ArrayList<String> errores) {
+    public boolean ingresoArchivo(ArrayList<String> errores) {
         
         String insert = "INSERT INTO GERENTE VALUES (?,?,?,?,?,?,?)";
         
@@ -45,15 +46,18 @@ public class IngresadorGerente extends Ingresador {
             
             preSt.executeUpdate();
             
+            return true;
+            
         } catch (Exception e) {
             System.out.println("Error IA Gerente: " + e.getMessage());
             errores.add("Error IA Cliente: " + e.getMessage());
+            return false;
         }
         
     }
 
     @Override
-    public void ingresoNormal() {
+    public boolean ingresoNormal() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

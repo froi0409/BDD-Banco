@@ -31,9 +31,11 @@ public class IngresadorCliente extends Ingresador {
     
     /**
      * Permite ingresar a un cliente desde un archivo xml al sistema
+     * @param errores ArrayList que contiene los errores que se pueden presentar en el ingreso al sistema
+     * @return retorna true si la entidad es ingresada con éxito, de lo contrario retorna false
      */
     @Override
-    public void ingresoArchivo(ArrayList<String> errores) {
+    public boolean ingresoArchivo(ArrayList<String> errores) {
     
         String insert = "INSERT INTO CLIENTE VALUES (?,?,?,?,?,?,?,?)";
         
@@ -50,15 +52,18 @@ public class IngresadorCliente extends Ingresador {
             
             preSt.executeUpdate();
             
+            return true;
+            
         } catch (Exception e) {
             System.out.println("Error IA Cliente: " + e.getMessage());
             errores.add("Error IA Cliente: " + e.getMessage());
+            return false;
         }
         
     }
 
     @Override
-    public void ingresoNormal() {
+    public boolean ingresoNormal() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

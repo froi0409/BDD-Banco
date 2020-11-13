@@ -5,6 +5,10 @@
  */
 package com.froi.sevlets;
 
+import com.froi.banco.Conexion;
+import com.froi.banco.GeneradorContraseña;
+import com.froi.entidades.Cajero;
+import com.froi.ingresadores.IngresadorCajero;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -46,7 +50,25 @@ public class CajeroRegistrar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Cajero cajero = new Cajero();
         
+        //Le damos atributos al cajero
+        cajero.setCodigo(request.getSession().getAttribute("codigoCajero").toString());
+        cajero.setNombre(request.getSession().getAttribute("nombreCajero").toString());
+        cajero.setTurno(request.getSession().getAttribute("turnoCajero").toString());
+        cajero.setDpi(request.getSession().getAttribute("dpiCajero").toString());
+        cajero.setDireccion(request.getSession().getAttribute("direccionCajero").toString());
+        cajero.setSexo(request.getSession().getAttribute("sexoCajero").toString());
+        cajero.setPassword(request.getSession().getAttribute("passwordCajero").toString());
+        
+        IngresadorCajero ingresador = new IngresadorCajero(Conexion.getConnection(), cajero);
+        if (ingresador.ingresoNormal()) {
+            request.setAttribute("mensaje", "¡¡¡Cajero Registrado Con Éxito!!!");
+        } else {
+            request.setAttribute("mensaje", "Error: Se produjo un error al tratar de registrar al cajero");
+        }
+        
+        request.getRequestDispatcher("gerente-registrar-cajero.jsp").forward(request, response);
         
     }
 

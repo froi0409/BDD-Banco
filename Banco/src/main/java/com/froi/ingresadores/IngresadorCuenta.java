@@ -27,9 +27,10 @@ public class IngresadorCuenta extends Ingresador {
     /**
      * Permite ingresar una cuenta (perteneciente a un cliente) a partir del archivo de entrada
      * @param errores ArrayList que contiene los errores que se puedan dar durante el ingreso a la base de datos
+     * @return retorna true si la entidad es ingresada con éxito, de lo contrario retorna false
      */
     @Override
-    public void ingresoArchivo(ArrayList<String> errores) {
+    public boolean ingresoArchivo(ArrayList<String> errores) {
     
         String insert = "INSERT INTO CUENTA VALUES (?,?,?,?)";
         
@@ -42,15 +43,18 @@ public class IngresadorCuenta extends Ingresador {
             
             preSt.executeUpdate();
             
+            return true;
+            
         } catch (Exception e) {
             System.out.println("Error IA Cuenta: " + e.getMessage());
             errores.add(e.getMessage());
+            return false;
         }
         
     }
 
     @Override
-    public void ingresoNormal() {
+    public boolean ingresoNormal() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

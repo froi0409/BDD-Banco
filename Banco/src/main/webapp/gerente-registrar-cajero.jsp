@@ -26,7 +26,7 @@
         </c:choose>
         
         <!-- Creamos Ventana de registro de Cajero -->
-        <form action="CajeroRegistrar" method="POST">
+        <form action="CajeroVerDatos" method="POST">
             <div class="pt-2 mt-5 mr-2"></div>
             <div class="container formulario pt-2"> 
                 <div class="row justify-content-center pt-1 mt-5 mr-1">
@@ -55,7 +55,14 @@
                         <label for="direccionCajero">Dirección:</label>
                         <input type="text" class="form-control" placeholder="Dirección del Cajero" name="direccionCajero" required/>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
+                        <label for="turnoCajero">Turno:</label><br>
+                        <select name="turnoCajero" class="btn-block">
+                            <option value="MATUTINO">Matutino</option>
+                            <option value="VESPERTINO">Vespertino</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
                         <label for="sexoCajero">Sexo:</label><br>
                         <select name="sexoCajero" class="btn-block">
                             <option value="Masculino">Masculino</option>
