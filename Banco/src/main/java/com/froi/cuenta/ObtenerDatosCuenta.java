@@ -8,6 +8,7 @@ package com.froi.cuenta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,12 +41,17 @@ public class ObtenerDatosCuenta {
             return result.getString(1);
             
         } catch (Exception e) {
-            System.out.println("Error al obtener dato de cliente: " + e.getMessage());
+            System.out.println("Error al obtener dato de la cuenta: " + e.getMessage());
             return null;
         }
         
     }
     
+    /**
+     * Método que sirve para obtener al propietario de lacuenta a traves del código de la cuenta
+     * @param codigoCuenta Número de cuenta de la cuál se desea saber el propietario
+     * @return 
+     */
     public String propietario(String codigoCuenta) {
         
         String query = "SELECT C.nombre FROM CLIENTE C INNER JOIN CUENTA CU ON C.dpi=CU.cliente WHERE CU.codigo = ?";
@@ -62,6 +68,42 @@ public class ObtenerDatosCuenta {
             System.out.println("Error propietario cuenta: " + e.getMessage());
             return null;
         }
+        
+    }
+    
+    /**
+     * Método que nos permite obtener a los propietarios de varias cuentas y almacenarlo en un ArrayList junto con el código de cuenta
+     * @param cuentas ArrayList que únicamente contiene los códigos de varias cuentas
+     * @return ArrayList tipo String[] que contiene e String[0] el código de una cuenta y en String[1] El nombre del propetario de la cuenta
+     */
+    public ArrayList<String[]> propietarioPorCuenta(ArrayList<String> cuentas) {
+        
+        ArrayList<String[]> lista = new ArrayList<String[]>();
+        String query = "SELECT CU.codigo,CL.nombre FROM CUENTA CU INNER JOIN CLIENTE CL ON CU.cliente=CL.dpi WHERE CU.codigo = ?";
+        
+        for(String element: cuentas) { //Recorremos cada una de las cuentas que contiene el ArrayList de entrada
+            
+            try (PreparedStatement preSt = connection.prepareStatement(query)) {
+                
+                preSt.setString(1, element);
+                ResultSet result = preSt.executeQuery();
+                
+                result.next();
+                
+                String[] datos = new String[2];
+                
+                datos[0] = result.getString(1); //Inresamos al String[0] el código de la cuenta
+                datos[1] = result.getString(2); //Ingresamos al String[1] el nombre del propietario de la cuenta
+                
+                lista.add(datos); //Añadimos los datos de la cuenta al ArrayList principal
+                
+            } catch (Exception e) {
+                System.out.println("Error al buscar al propietario de la cuenta " + cuentas + ": " + e.getMessage());
+            }
+            
+        }
+        
+        return lista;
         
     }
     

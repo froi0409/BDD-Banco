@@ -8,6 +8,7 @@ package com.froi.cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -41,6 +42,62 @@ public class ObtenerDatosCliente {
             
         } catch (Exception e) {
             System.out.println("Error al obtener dato de cliente: " + e.getMessage());
+            return null;
+        }
+        
+    }
+    
+    /**
+     * Método que sirve para obtener las cuentas que un cliente tiene asociadas 
+     * @param dpiCliente DPI del cliente del que se quieren saber las cuentas
+     * @return ArrayList tipo String que contiene las cuentas que el cliente tiene asociadas
+     */
+    public ArrayList<String> cuentasAsociadas(String dpiCliente) {
+        
+        String query = "SELECT cuenta FROM CUENTA_ASOCIADA WHERE cliente = ? AND estado = 'CUENTA ASOCIADA'";
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, dpiCliente);
+            ResultSet result = preSt.executeQuery();
+            
+            while (result.next()) {
+                lista.add(result.getString(1));
+            }
+            
+            return lista;
+            
+        } catch (Exception e) {
+            System.out.println("Error al obtener cuenta asociada: " + e.getMessage());
+            return null;
+        }
+        
+    }
+    
+    /**
+     * Método que sirve para obtener las cuentas propias de un cliente
+     * @param dpiCliente DPI del cliente
+     * @return ArrayList tipo String que contiene las cuentas del cliente
+     */
+    public ArrayList<String> cuentasPropias(String dpiCliente) {
+        
+        String query = "SELECT codigo FROM CUENTA WHERE cliente = ?";
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, dpiCliente);
+            ResultSet result = preSt.executeQuery();
+            
+            while (result.next()) {
+                lista.add(result.getString(1));
+            }
+            
+            return lista;
+            
+        } catch (Exception e) {
+            System.out.println("Error al obtener cuenta asociada: " + e.getMessage());
             return null;
         }
         
