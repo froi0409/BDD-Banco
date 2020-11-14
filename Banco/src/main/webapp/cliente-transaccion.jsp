@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group mx-sm-5 pb-5"><!-- comment -->
                             <label for="Monto">Monto a Transferir (Q):</label>
-                            <input type="number" step=".01" class="form-control" placeholder="xxxx.xx" value="monto" name="monto"  oninvalid="setCustomValidity('Cantidad monetaria inválida. Por favor, ingrese una cantidad monetaria válida.')" min="1" required/>
+                            <input type="number" step=".01" class="form-control" placeholder="xxxx.xx" value="monto" name="monto"  oninvalid="setCustomValidity('Cantidad monetaria inválida. Por favor, ingrese una cantidad monetaria válida.')" min="0.01" required/>
                         
                         </div>
                     </div>

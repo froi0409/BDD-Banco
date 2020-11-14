@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">
-                    <div class="col-md-4"><label>¿Desea continuar con el registro del cliente?</label><br></div>
+                    <div class="col-md-4"><label>¿Desea continuar con el registro del cajero?</label><br></div>
 
                 </div>
                 <div class="row justify-content-center mb-4">

@@ -23,6 +23,28 @@ public class ObtenerDatosCliente {
     }
     
     /**
+     * Permite obtener el código de un cliente a partir del dpi (ya que para hacer uso del método obtener dato se necesita el código)
+     * @param dpiCliente DPI del cliente consultado
+     * @return Código del cliente consultado
+     */
+    public String obtenerCodigo(String dpiCliente) {
+        
+        String query = "SELECT codigo FROM CLIENTE WHERE dpi = ?";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            preSt.setString(1, dpiCliente);
+            
+            ResultSet result = preSt.executeQuery();
+            result.next();
+            return result.getString(1);
+        } catch (Exception e) {
+            System.out.println("Error al encontrar cliente");
+            return null;
+        }
+        
+    }
+    
+    /**
      * Metodo que sirve para obtener algún dato del cliente a partir de su código
      * @param dato dato que se desea obtener del cliente
      * @param codigoCliente Código del Cliente
@@ -99,6 +121,35 @@ public class ObtenerDatosCliente {
         } catch (Exception e) {
             System.out.println("Error al obtener cuenta asociada: " + e.getMessage());
             return null;
+        }
+        
+    }
+    
+    
+    /**
+     * Permite determinar si un cliente existe o no
+     * @param dpiCliente DPI del cliente
+     * @return retorna true si el cliente existe en el sistema, de lo contrario retorna false
+     */
+    public boolean exists(String dpiCliente) {
+        
+        String query = "SELECT COUNT(*) FROM CLIENTE WHERE dpi = ?";
+        
+        try(PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, dpiCliente);
+            ResultSet result = preSt.executeQuery();
+            result.next();
+            
+            if(result.getInt(1) == 0) {
+                return false;
+            } else {
+                return true;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error Exists cliente");
+            return false;
         }
         
     }

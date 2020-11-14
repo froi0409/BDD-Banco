@@ -25,6 +25,7 @@ com/froi/ingresadores/IngresadorCliente.class
 com/froi/banco/GeneradorContraseña.class
 com/froi/lectores/LectorCajero.class
 com/froi/cajero/ObtenerDatosCajero.class
+com/froi/sevlets/RegistrarCuentaConfirmarCliente.class
 com/froi/banco/LectorXml.class
 com/froi/transaccion/TransaccionPortal.class
 com/froi/banco/ArchivoDeEntrada.class
@@ -47,4 +48,5 @@ com/froi/sevlets/ClienteVerDatos.class
 com/froi/sevlets/RechazarSolicitud.class
 com/froi/lectores/LectorArchivo.class
 com/froi/banco/Conexion.class
+com/froi/sevlets/RegistrarCuenta.class
 com/froi/banco/AnalizadorDeExistencia.class

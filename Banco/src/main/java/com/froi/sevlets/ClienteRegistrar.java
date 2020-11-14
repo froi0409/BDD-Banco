@@ -64,6 +64,7 @@ public class ClienteRegistrar extends HttpServlet {
         cliente.setDpiPdf(request.getSession().getAttribute("pdfDpiCliente").toString());
         cliente.setPassword(request.getSession().getAttribute("passwordCliente").toString());
         
+        //Agregamos atributos de la cuenta
         cuenta.setCodigo(request.getSession().getAttribute("codigoCuenta").toString());
         cuenta.setCredito(0);
         cuenta.setCliente(request.getSession().getAttribute("dpiCliente").toString());
