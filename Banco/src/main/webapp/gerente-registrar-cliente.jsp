@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="dpiPdfCliente">PDF del DPI:</label><br>
-                        <input type="file" class="btn-block" name="ruta" accept="text/xml" value="Elegir" required/>
+                        <input type="file" class="btn-block" name="ruta" accept="application/pdf" value="Elegir" required/>
                     </div>
                </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">

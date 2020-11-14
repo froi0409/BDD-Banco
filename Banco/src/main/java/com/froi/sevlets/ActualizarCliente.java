@@ -5,6 +5,7 @@
  */
 package com.froi.sevlets;
 
+import com.froi.banco.AnalizadorDeExistencia;
 import com.froi.banco.Conexion;
 import com.froi.banco.Encriptador;
 import com.froi.cliente.ActualizarDatoCliente;
@@ -51,7 +52,7 @@ public class ActualizarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        AnalizadorDeExistencia existe = new AnalizadorDeExistencia(Conexion.getConnection());
         ActualizarDatoCliente actualizarDatoCliente = new ActualizarDatoCliente(Conexion.getConnection());
         Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
         String dpiCliente = cliente.getDpi();
@@ -59,6 +60,7 @@ public class ActualizarCliente extends HttpServlet {
         String campo = request.getParameter("campo");
         String datoAntiguo;
         String datoNuevo;
+        boolean codigoExistente = false;
         
         if (campo.equals("birth")) {
             datoAntiguo = cliente.getBirth();
@@ -76,6 +78,14 @@ public class ActualizarCliente extends HttpServlet {
         } else if (campo.equals("codigo")) {
             datoAntiguo = cliente.getCodigo();
             datoNuevo = request.getParameter("nuevoDatoTexto");
+            if(existe.codigo(datoNuevo)){
+                request.setAttribute("mensaje", "Error: Ya existe un usuario con el código solicitado, favor intentar de nuevo");
+                System.out.println("Entra");
+                request.getRequestDispatcher("gerente-actualizar-cliente-datos.jsp").forward(request, response);
+                response.sendRedirect("#");
+                codigoExistente = true;
+                System.out.println("por algún motivo sigue");
+            }
         } else if (campo.equals("nombre")) {
             datoAntiguo = cliente.getNombre();
             datoNuevo = request.getParameter("nuevoDatoTexto");
@@ -84,8 +94,10 @@ public class ActualizarCliente extends HttpServlet {
             datoAntiguo = null;
         }
         
-        if(actualizarDatoCliente.actualizar(campo, datoAntiguo, datoNuevo, dpiCliente, codigoGerente)) {
-            request.setAttribute("mensaje", "El campo " + campo + " del cliente " + cliente.getNombre() + " fue actualizado a " + datoNuevo + " con éxito");
+        System.out.println("campo: " + campo);
+        
+        if(!codigoExistente && actualizarDatoCliente.actualizar(campo, datoAntiguo, datoNuevo, dpiCliente, codigoGerente)) {
+            request.setAttribute("mensaje", "El campo " + campo + " del cliente fue actualizado a " + datoNuevo + " con éxito");
             request.getRequestDispatcher("gerente-actualizar-cliente-datos.jsp").forward(request, response);
         } else {
             request.setAttribute("mensaje", "Error: Hubo un error al tratar de actualizar la información");

@@ -50,4 +50,29 @@ public class ObtenerDatosCajero {
         
     }
     
+    /**
+     * Metodo que sirve para obtener algún dato del cajero a partir de su código
+     * @param dato dato que se desea obtener del cajero
+     * @param codigo Código del Cajero
+     * @return retorna el dato que se desea obtener
+     */
+    public String obtenerDato(String dato, String codigo) {
+        
+        String query = "SELECT " + dato + " FROM CAJERO WHERE codigo = ?";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, codigo);
+            ResultSet result = preSt.executeQuery();
+            result.next();
+            
+            return result.getString(1);
+            
+        } catch (Exception e) {
+            System.out.println("Error al obtener dato de cajero: " + e.getMessage());
+            return null;
+        }
+        
+    }
+    
 }

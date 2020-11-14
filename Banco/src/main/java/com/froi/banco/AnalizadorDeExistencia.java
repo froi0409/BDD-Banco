@@ -51,6 +51,13 @@ public class AnalizadorDeExistencia {
     
     }
     
+    /**
+     * Analiza si las credenciales ingresadas existen en el sistema
+     * @param tabla Tabla qe se quiere consultar
+     * @param usuario Usuario a consultar
+     * @param password Password a consultar
+     * @return retorna true si las credenciales existen, de lo contrario retorna false
+     */
     public boolean credenciales(String tabla, String usuario, String password) {
         
         String query = "SELECT codigo,password FROM " + tabla + " WHERE codigo = ? AND password = ?";

@@ -24,8 +24,10 @@ public class ActualizarDatoCliente {
     /**
      * Método que permite actualizar un dato de un cliente
      * @param campo Campo a actualizar
-     * @param dato Dato nuevo
+     * @param datoAntiguo Dato antigui
+     * @param datoNuevo Dato nuevo
      * @param dpiCliente DPI del cliente
+     * @param codigoGerente Codigo del gerente que actualiza
      * @return retorna true si la información del cliente fue actualizada con éxito, de lo contrario retorna false
      */
     public boolean actualizar(String campo, String datoAntiguo, String datoNuevo, String dpiCliente, String codigoGerente) {

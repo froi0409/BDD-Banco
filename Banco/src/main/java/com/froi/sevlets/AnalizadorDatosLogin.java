@@ -7,6 +7,7 @@ package com.froi.sevlets;
 
 import com.froi.banco.AnalizadorDeExistencia;
 import com.froi.banco.Conexion;
+import com.froi.banco.Encriptador;
 import com.froi.cliente.ObtenerDatosCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,6 +36,7 @@ public class AnalizadorDatosLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Encriptador encriptador = new Encriptador();
         AnalizadorDeExistencia analizador = new AnalizadorDeExistencia(Conexion.getConnection());
         Conexion conexion = new Conexion();
         
@@ -42,17 +44,17 @@ public class AnalizadorDatosLogin extends HttpServlet {
         String password = "";
         
         usuario += request.getParameter("usuario");
-        password += request.getParameter("password");
+        password += encriptador.encriptar(request.getParameter("password"));
        
         if (!analizador.analizar()) { //analiza si la base de datos está vacia
             
-            if (usuario.equals(conexion.getUser()) && password.equals(conexion.getPassword())) { //analiza si el usuario y contraseña corresponden a los datos del sistema
+            if (usuario.equals(conexion.getUser()) && password.equals(encriptador.encriptar(conexion.getPassword()))) { //analiza si el usuario y contraseña corresponden a los datos del sistema
                 request.getRequestDispatcher("inicio-subir-archivo.jsp").forward(request, response); //Redirecciona a la pantalla de la subida de archivos, siempre que se ingrese el usuario y password del administrador de la base de datos
             }
             request.setAttribute("mensaje", "Sistema Vacío, favor contactar al Banco");
             request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
         } else {
-            if (usuario.equals("null") && password.equals("null")) {
+            if (usuario.equals("null") && password.equals(encriptador.encriptar("null"))) {
                 request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
             }
             

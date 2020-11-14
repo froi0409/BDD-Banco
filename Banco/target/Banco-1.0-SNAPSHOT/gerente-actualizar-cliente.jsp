@@ -49,8 +49,8 @@
                     <div class="col-md-4">
                         <label>Dato Nuevo:</label><br>
                         <input type="text" id="texto" class="form-control" name="nuevoDatoTexto" style="display: block" required/>
-                        <input type="date" id="fecha" class="form-control" name="nuevoDatoFecha" style="display: none" required/>
-                        <input type="password" id="contraseña" class="form-control" name="nuevoDatoPassword" style="display: none" required/>
+                        <input type="date" id="fecha" class="form-control" name="nuevoDatoFecha" style="display: none"/>
+                        <input type="password" id="contraseña" class="form-control" name="nuevoDatoPassword" style="display: none"/>
                         <select class="btn-block" id="opcion" name="nuevoDatoOpcion" style="display: none">
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
