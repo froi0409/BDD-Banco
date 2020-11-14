@@ -15,7 +15,7 @@
     </head>
     <body>
         <%@include file = "cabecera.jsp" %>
-        <%@include file = "gerente-barra-herramientas.html" %>
+        <%@include file = "cajero-barra-herramientas.html" %>
 
         <c:choose>
             <c:when test = "${mensaje != null}">
@@ -25,11 +25,11 @@
             </c:when>
         </c:choose>
         
-        <form action="DepositoDatos" method="POST">
+        <form action="TransaccionCajeroDatos?operacion=deposito" method="POST">
             <div class="pt-2 mt-5 mr-2"></div>
             <div class="container formulario pt-2"> 
                 <div class="row justify-content-center pt-1 mt-5 mr-1">
-                    <h1>Ingrese Datos</h1>
+                    <h1>Depósito: Ingrese Datos</h1>
                 </div>
                 <div class="row justify-content-center ml-2 pt- mt-5 mr-1"> <!-- Utilizamos el sistema de filas de bootstrap -->
                     <div class="col-md-6">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row justify-content-center ml-2 pt-1 mt-5 mr-1 mb-4">
                     <div class="col-md-5" align="center">
-                        <input type="submit" value="Aceptar" class="btn btn-danger"/>
+                        <input type="submit" value="Depositar" class="btn btn-danger"/>
                     </div>
                 </div>
             </div>

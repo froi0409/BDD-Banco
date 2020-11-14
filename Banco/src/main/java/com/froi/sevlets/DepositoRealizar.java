@@ -7,7 +7,7 @@ package com.froi.sevlets;
 
 import com.froi.banco.Conexion;
 import com.froi.entidades.Transaccion;
-import com.froi.transaccion.Deposito;
+import com.froi.transaccion.TransaccionCajero;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
@@ -52,7 +52,7 @@ public class DepositoRealizar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Deposito deposito = new Deposito(Conexion.getConnection());
+        TransaccionCajero deposito = new TransaccionCajero(Conexion.getConnection());
         Transaccion transaccion = new Transaccion();
         String codigoCajero = request.getSession().getAttribute("usuario").toString();
         String codigoCuenta = request.getSession().getAttribute("codigoCuenta").toString();
@@ -69,20 +69,22 @@ public class DepositoRealizar extends HttpServlet {
         
         //Establecemos código de la transacción
         String codigo = request.getSession().getAttribute("codigoCuenta").toString() + dia + mes + año + hora + minutos + segundos;
-        double monto = Double.parseDouble(request.getSession().getAttribute("monto").toString());
+        String dinero = request.getSession().getAttribute("monto").toString();
+        double monto = Double.parseDouble(dinero);
         
         transaccion.setCodigo(codigo);
         transaccion.setCuentaDestino(codigoCuenta);
         transaccion.setMonto(monto);
         transaccion.setCajero(codigoCajero);
         
-        //Eliminamoslos atributos de la sesión
+        //Eliminamoslos atributos de la sesión (Seguridad)
         request.getSession().removeAttribute("codigoCuenta");
         request.getSession().removeAttribute("propietarioCuenta");
         request.getSession().removeAttribute("monto");
+        request.getSession().removeAttribute("dpiPropietario");
         
-        if (deposito.realizar(transaccion, monto)) {
-            request.setAttribute("mensaje", "¡¡¡Depósito a la cuenta " + codigoCuenta + " realizado con éxito!!!");
+        if (deposito.realizar(transaccion, monto, "CREDITO")) {
+            request.setAttribute("mensaje", "¡¡¡Depósito de Q " + dinero + " a la cuenta " + codigoCuenta + " realizado con éxito!!!");
             request.getRequestDispatcher("cajero-deposito-cliente.jsp").forward(request, response);
         } else {
             request.setAttribute("mensaje", "Error: Hubo un error al realizar la transferencia");

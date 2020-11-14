@@ -62,6 +62,10 @@ public class IngresadorCliente extends Ingresador {
         
     }
 
+    /**
+     * Permite ingresar a un cliente al sistema 
+     * @return Retorna true si el cliente fue ingresado con éxito, de lo contrario retorna false;
+     */
     @Override
     public boolean ingresoNormal() {
     

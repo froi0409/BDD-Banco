@@ -1,6 +1,5 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/CerrarSesion.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/ingresadores/IngresadorCajero.java
-/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/DepositoDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/TransaccionInicio.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/gerente/ObtenerDatosGerente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/RegistrarCuentaConfirmarCliente.java
@@ -18,13 +17,13 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/ingresadores/IngresadorCuenta.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/ActualizarCajeroDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cuenta/ObtenerDatosCuenta.java
-/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/transaccion/Deposito.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/CajeroVerDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/ClienteRegistrar.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/ingresadores/Ingresador.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/lectores/LectorTransaccion.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/banco/ArchivoDeEntrada.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/entidades/Estructura.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/RetiroRealizar.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/entidades/Cuenta.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/banco/Conexion.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cliente/RespuestaSolicitud.java
@@ -55,10 +54,11 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/ClienteVerDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/ActualizarCliente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/DepositoRealizar.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/TransaccionCajeroDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/LecturaArchivo.java
-/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/RetiroDatos.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/entidades/Cajero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/ActualizarClienteDatos.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/transaccion/TransaccionCajero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/lectores/LectorCajero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cajero/ActualizarDatoCajero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cliente/EnviarSolicitud.java
