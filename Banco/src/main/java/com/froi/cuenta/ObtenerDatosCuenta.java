@@ -50,7 +50,7 @@ public class ObtenerDatosCuenta {
     /**
      * Método que sirve para obtener al propietario de lacuenta a traves del código de la cuenta
      * @param codigoCuenta Número de cuenta de la cuál se desea saber el propietario
-     * @return 
+     * @return Nombre del propietario de la cuenta
      */
     public String propietario(String codigoCuenta) {
         
