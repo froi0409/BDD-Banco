@@ -4,6 +4,8 @@
     Author     : froi-pc
 --%>
 
+<%@page import="com.froi.banco.Conexion"%>
+<%@page import="com.froi.gerente.ObtenerDatosGerente"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,7 +27,7 @@
             </c:when>
         </c:choose>
         
-        <form action="ActualizarCajero" method="POST">
+        <form action="ActualizarGerente" method="POST">
             <div class="pt-2 mt-5 mr-2"></div>
             <div class="container formulario pt-2"> 
                 <div class="row justify-content-center pt-1 mt-5 mr-1">
@@ -35,7 +37,6 @@
                     <div class="col-md-4">
                         <label for="campo">Atributo a Actualizar:</label><br>
                         <select id="campo" name="campo" class="btn-block" onclick="tipoEntrada2()">
-                            <option value="codigo">Usuario (Codigo)</option>
                             <option value="nombre">Nombre</option>
                             <option value="turno">Turno</option>
                             <option value="direccion">Dirección</option>
@@ -82,14 +83,16 @@
                     <tbody>
                         
                         <%
-                        Cajero cajero = (Cajero) request.getSession().getAttribute("cajero");
+                        
+                        ObtenerDatosGerente obtenerDatoGerente = new ObtenerDatosGerente(Conexion.getConnection());
+                        String codigo = request.getSession().getAttribute("usuario").toString();
                         out.println("<tr>");
-                        out.println("<td>" + cajero.getCodigo() + "</td>");
-                        out.println("<td>" + cajero.getNombre() + "</td>");
-                        out.println("<td>" + cajero.getTurno() + "</td>");
-                        out.println("<td>" + cajero.getDireccion() + "</td>");
-                        out.println("<td>" + cajero.getSexo() + "</td>");
-                        out.println("<td>" + cajero.getPassword() + "</td>");
+                        out.println("<td>" + codigo + "</td>");
+                        out.println("<td>" + obtenerDatoGerente.obtenerDato("nombre", codigo) + "</td>");
+                        out.println("<td>" + obtenerDatoGerente.obtenerDato("turno", codigo) + "</td>");
+                        out.println("<td>" + obtenerDatoGerente.obtenerDato("direccion", codigo) + "</td>");
+                        out.println("<td>" + obtenerDatoGerente.obtenerDato("sexo", codigo) + "</td>");
+                        out.println("<td>" + obtenerDatoGerente.obtenerDato("password", codigo)+ "</td>");
                         out.println("</tr>");
                         %>
                     </tbody>

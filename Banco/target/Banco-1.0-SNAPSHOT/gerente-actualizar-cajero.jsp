@@ -36,7 +36,6 @@
                     <div class="col-md-4">
                         <label for="campo">Atributo a Actualizar:</label><br>
                         <select id="campo" name="campo" class="btn-block" onclick="tipoEntrada2()">
-                            <option value="codigo">Usuario (Codigo)</option>
                             <option value="nombre">Nombre</option>
                             <option value="turno">Turno</option>
                             <option value="direccion">Dirección</option>

@@ -92,7 +92,7 @@ public class ActualizarCajero extends HttpServlet {
             datoAntiguo = null;
         } 
         
-        if (!codigoExistente &&actualizarDatosCajero.actualizar(campo, datoAntiguo, datoNuevo, codigoCajero, codigoGerente)) {
+        if (!codigoExistente && actualizarDatosCajero.actualizar(campo, datoAntiguo, datoNuevo, codigoCajero, codigoGerente)) {
             request.setAttribute("mensaje", "El campo " + campo + " del cajero fue actualizado a " + datoNuevo + " con éxito");
             request.getRequestDispatcher("gerente-actualizar-cajero-datos.jsp").forward(request, response);
         } else {
