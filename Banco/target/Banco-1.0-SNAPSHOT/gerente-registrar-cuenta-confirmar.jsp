@@ -17,7 +17,6 @@
         <%@include file = "cabecera.jsp" %>
         <%@include file = "gerente-barra-herramientas.html" %>
 
-        <!-- Creamos Ventana de registro de Cajero -->
         <form action="RegistrarCuenta" method="POST">
             <div class="mt-5"></div>
             <div class="container formulario"> 

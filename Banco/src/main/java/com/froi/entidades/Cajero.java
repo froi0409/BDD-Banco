@@ -5,6 +5,8 @@
  */
 package com.froi.entidades;
 
+import com.froi.banco.Encriptador;
+
 /**
  *
  * @author froi-pc
@@ -72,7 +74,8 @@ public class Cajero extends Entidad {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Encriptador encriptador = new Encriptador();
+        this.password = encriptador.encriptar(password);
     }
     
 }

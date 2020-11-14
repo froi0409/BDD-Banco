@@ -1,8 +1,10 @@
+com/froi/sevlets/ActualizarClienteDatos.class
 com/froi/entidades/Entidad.class
 com/froi/sevlets/SolicitudDeAsociacionDatos.class
 com/froi/cliente/ObtenerDatosCliente.class
 com/froi/sevlets/CajeroVerDatos.class
 com/froi/entidades/Cuenta.class
+com/froi/cliente/ActualizarDatoCliente.class
 com/froi/banco/AnalizadorCredenciales.class
 com/froi/cliente/EnviarSolicitud.class
 com/froi/cuenta/ObtenerDatosCuenta.class
@@ -17,6 +19,7 @@ com/froi/banco/GeneradorCuenta.class
 com/froi/entidades/Gerente.class
 com/froi/entidades/Estructura.class
 com/froi/lectores/LectorTransaccion.class
+com/froi/sevlets/ActualizarCliente.class
 com/froi/sevlets/AnalizadorDatosLogin.class
 com/froi/gerente/ObtenerDatosGerente.class
 com/froi/entidades/Cliente.class
@@ -44,6 +47,7 @@ com/froi/lectores/LectorCliente.class
 com/froi/ingresadores/IngresadorTransaccion.class
 com/froi/sevlets/LecturaArchivo.class
 com/froi/ingresadores/Ingresador.class
+com/froi/banco/Encriptador.class
 com/froi/sevlets/ClienteVerDatos.class
 com/froi/sevlets/RechazarSolicitud.class
 com/froi/lectores/LectorArchivo.class
