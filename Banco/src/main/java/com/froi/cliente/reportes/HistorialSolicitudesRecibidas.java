@@ -22,9 +22,9 @@ public class HistorialSolicitudesRecibidas {
     }
     
     /**
-     * Obtiene la información de las solicitudes de asociación que un cliente ha recibido
-     * @param codigoCliente codigo del cliente que se desea consultar
-     * @return ArrayList tipo String[] que contiene la información de todas las solicitudes de asociación que el cliente ha recibido
+     * Obtiene las solicitudes de asociación que un cliente ha recibido
+     * @param dpiCliente DPI del cliente a consultar
+     * @return ArrayList tipo String[] que contiene los datos del historial de solicitudes que un cliente ha recibido
      */
     public ArrayList<String[]> obtener(String dpiCliente){
         String query = "SELECT * FROM CUENTA_ASOCIADA WHERE cuenta IN (SELECT codigo FROM CUENTA WHERE cliente = ?)";

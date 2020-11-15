@@ -34,26 +34,24 @@
                 <div class="row justify-content-center pt-1 mt-5 mr-1" align="center">
                     <h1>Ingrese Datos:</h1>
                 </div>
-                <div class="row justify-content-center pt-1 mt-5 mr-1"> <!-- Utilizamos el sistema de filas de bootstrap -->
+                <div class="row justify-content-center pt-1 mt-5 mr-1 pb-2"> <!-- Utilizamos el sistema de filas de bootstrap -->
                     
                     <div class="col-md-6">
-                        <div class="form-group mx-sm-5 pb-5">
-                            <label for="codigoCuenta">Cuenta a Consultar:</label>
-                            <select name="codigoCuenta" class="btn-block">
-                                <%
-                                ObtenerDatosCliente datosCliente = new ObtenerDatosCliente(Conexion.getConnection());
-                                ArrayList<String> cuentas = datosCliente.cuentasPropias(request.getSession().getAttribute("dpi").toString());
-                                
-                                for(String element : cuentas) {
-                                    out.println("<option value=\"" + element + "\">" + element + "</option>");
-                                }
+                        <label for="codigoCuenta">Cuenta a Consultar:</label>
+                        <select name="codigoCuenta" class="btn-block">
+                            <%
+                            ObtenerDatosCliente datosCliente = new ObtenerDatosCliente(Conexion.getConnection());
+                            ArrayList<String> cuentas = datosCliente.cuentasPropias(request.getSession().getAttribute("dpi").toString());
 
-                            %>         
-                            </select>
-                        </div>
+                            for(String element : cuentas) {
+                                out.println("<option value=\"" + element + "\">" + element + "</option>");
+                            }
+
+                        %>         
+                        </select>
                     </div>                    
                 </div>
-                <div class="row justify-content-center pt-1 mt-1 mr-1 mb-3">
+                <div class="row justify-content-center pt-1 mt-1 mr-1 mb-3 pb-2">
                     <div class="col-md-3">
                         <label for="fechaInicial">Fecha Inicial:</label>
                         <input type="date" class="form-control" name="fechaInicial" required/>
