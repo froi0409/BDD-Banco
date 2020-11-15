@@ -9,6 +9,7 @@ import com.froi.cuenta.ObtenerDatosCuenta;
 import com.froi.entidades.Transaccion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import sun.tools.java.Type;
 
 /**
  *
@@ -36,7 +37,7 @@ public class TransaccionPortal {
         double dineroCuentaDestino = Double.parseDouble(datosCuenta.obtenerDato("credito", transaccion.getCuentaDestino())) + dinero;
         
         String update = "UPDATE CUENTA SET credito = ? WHERE codigo = ?";
-        String insert = "INSERT INTO TRANSACCION VALUES (?,?,?,CURDATE(),CURTIME(),?,?,NULL)";
+        String insert = "INSERT INTO TRANSACCION VALUES (?,?,?,CURDATE(),CURTIME(),?,?,?)";
         
         try (PreparedStatement preSt = connection.prepareStatement(update);
                 PreparedStatement preSt2 = connection.prepareStatement(update);
@@ -56,6 +57,7 @@ public class TransaccionPortal {
             preSt3.setString(3, transaccion.getCuentaOrigen());
             preSt3.setString(4, transaccion.getTipo());
             preSt3.setDouble(5, transaccion.getMonto());
+            preSt3.setNull(6, Type.NULL);
             
             preSt3.executeUpdate();
             

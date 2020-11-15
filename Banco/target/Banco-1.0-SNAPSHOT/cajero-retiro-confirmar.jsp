@@ -33,7 +33,7 @@
                 </div>
                 <div class="row justify-content-center ml-2 pt- mt-5 mr-1"> <!-- Utilizamos el sistema de filas de bootstrap -->
                     <div class="col-md-4" align="center">
-                        <label for="dpiCliente"><b>Dueño de la Cuenta:</b></label><br>
+                        <label for="dpiCliente"><b>DPI del Dueño de la Cuenta:</b></label><br>
                         <% out.println(request.getSession().getAttribute("dpiPropietario").toString()); %>
                     </div>
                     <div class="col-md-4" align="center">

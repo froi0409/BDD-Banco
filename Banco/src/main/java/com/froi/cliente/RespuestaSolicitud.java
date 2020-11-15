@@ -28,7 +28,7 @@ public class RespuestaSolicitud {
      */
     public boolean aceptar(String dpiSolicitante, String cuentaSolicitada){
         
-        String update = "UPDATE CUENTA_ASOCIADA SET estado = 'CUENTA ASOCIADA' WHERE cliente = ? AND cuenta = ?";
+        String update = "UPDATE CUENTA_ASOCIADA SET estado = 'CUENTA ASOCIADA', fecha=CURDATE() WHERE cliente = ? AND cuenta = ?";
         
         try (PreparedStatement preSt = connection.prepareStatement(update)) {
             
@@ -54,7 +54,7 @@ public class RespuestaSolicitud {
      */
     public boolean rechazar(String dpiSolicitante, String cuentaSolicitada) {
         
-        String update = "UPDATE CUENTA_ASOCIADA SET estado = 'RECHAZADA' WHERE cliente = ? AND cuenta = ?";
+        String update = "UPDATE CUENTA_ASOCIADA SET estado = 'RECHAZADA', fecha=CURDATE() WHERE cliente = ? AND cuenta = ?";
         
         try (PreparedStatement preSt = connection.prepareStatement(update)) {
             

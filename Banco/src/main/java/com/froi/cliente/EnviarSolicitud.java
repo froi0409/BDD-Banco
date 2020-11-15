@@ -151,7 +151,7 @@ public class EnviarSolicitud {
         int intentosAux = intentos+1;
         
         if(intentos == 0){
-            update = "INSERT INTO CUENTA_ASOCIADA VALUES (?,?,'EN ESPERA'," + intentosAux + ")";
+            update = "INSERT INTO CUENTA_ASOCIADA VALUES (?,?,'EN ESPERA'," + intentosAux + ",CURDATE())";
         } else {
             update = "UPDATE CUENTA_ASOCIADA SET intentos = " + intentosAux + ", estado='EN ESPERA' WHERE cliente = ? AND cuenta = ?";
         }
