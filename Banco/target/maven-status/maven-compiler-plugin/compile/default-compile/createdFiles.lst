@@ -9,8 +9,10 @@ com/froi/gerente/reportes/ReporteClienteTransaccionesSumadas.class
 com/froi/cliente/EnviarSolicitud.class
 com/froi/sevlets/DepositoRealizar.class
 com/froi/cuenta/ObtenerDatosCuenta.class
+com/froi/sevlets/EstablecerLimites.class
 com/froi/ingresadores/IngresadorGerente.class
 com/froi/sevlets/AceptarSolicitud.class
+com/froi/gerente/EstablecerLimiteConsulta.class
 com/froi/gerente/ActualizarDatoGerente.class
 com/froi/sevlets/ActualizarCajeroDatos.class
 com/froi/sevlets/SolicitudDeAsociacionEnviar.class

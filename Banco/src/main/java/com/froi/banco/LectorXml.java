@@ -8,6 +8,7 @@ package com.froi.banco;
 import com.froi.entidades.Cajero;
 import com.froi.entidades.Gerente;
 import com.froi.entidades.Transaccion;
+import com.froi.gerente.EstablecerLimiteConsulta;
 import com.froi.lectores.Lector;
 import com.froi.lectores.*;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class LectorXml {
             LectorTransaccion lecTransaccion = new LectorTransaccion(errores);
             lector.leerTag(path, "TRANSACCION", lecTransaccion, transaccion);
 
+            EstablecerLimiteConsulta limite = new EstablecerLimiteConsulta(Conexion.getConnection());
+            limite.establecerInicialmente();
+            
         } catch (Exception ex) {
             Logger.getLogger(LectorXml.class.getName()).log(Level.SEVERE, null, ex);
         }
