@@ -27,7 +27,7 @@ public class HistorialSolicitudesRecibidas {
      * @return ArrayList tipo String[] que contiene los datos del historial de solicitudes que un cliente ha recibido
      */
     public ArrayList<String[]> obtener(String dpiCliente){
-        String query = "SELECT * FROM CUENTA_ASOCIADA WHERE cuenta IN (SELECT codigo FROM CUENTA WHERE cliente = ?)";
+        String query = "SELECT CA.*,C.nombre FROM CUENTA_ASOCIADA CA JOIN CLIENTE C ON C.dpi=CA.cliente WHERE cuenta IN (SELECT codigo FROM CUENTA WHERE cliente = ?)";
         ArrayList<String[]> lista = new ArrayList<String[]>();
         
         try (PreparedStatement preSt = connection.prepareStatement(query)) {
@@ -37,13 +37,14 @@ public class HistorialSolicitudesRecibidas {
             ResultSet result = preSt.executeQuery();
             
             while(result.next()) {
-                String[] datos = new String[5];
+                String[] datos = new String[6];
                 
-                datos[0] = result.getString(1);
-                datos[1] = result.getString(2);
-                datos[2] = result.getString(3);
-                datos[3] = result.getString(4);
-                datos[4] = result.getString(5);
+                datos[0] = result.getString("cliente");
+                datos[1] = result.getString("nombre");
+                datos[2] = result.getString("cuenta");
+                datos[3] = result.getString("estado");
+                datos[4] = result.getString("intentos");
+                datos[5] = result.getString("fecha");
                 
                 lista.add(datos);
                 
