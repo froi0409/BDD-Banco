@@ -11,4 +11,6 @@ package com.froi.gerente.reportes;
  */
 public class HistorialTransaccionesPorCliente {
     
+    
+    
 }

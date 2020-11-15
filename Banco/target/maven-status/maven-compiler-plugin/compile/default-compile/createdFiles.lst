@@ -15,11 +15,13 @@ com/froi/gerente/ActualizarDatoGerente.class
 com/froi/sevlets/ActualizarCajeroDatos.class
 com/froi/sevlets/SolicitudDeAsociacionEnviar.class
 com/froi/sevlets/TransaccionDatos.class
+com/froi/banco/ReporteTiempo.class
 com/froi/ingresadores/IngresadorCuenta.class
 com/froi/cliente/RespuestaSolicitud.class
 com/froi/ingresadores/IngresadorCajero.class
 com/froi/sevlets/RetiroRealizar.class
 com/froi/banco/GeneradorCuenta.class
+com/froi/sevlets/ClienteReporteCambioDinero.class
 com/froi/cajero/reportes/ListadoTransaccionesTurno.class
 com/froi/entidades/Gerente.class
 com/froi/sevlets/TransaccionCajeroDatos.class
