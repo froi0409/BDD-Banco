@@ -24,6 +24,7 @@ com/froi/ingresadores/IngresadorCajero.class
 com/froi/sevlets/RetiroRealizar.class
 com/froi/banco/GeneradorCuenta.class
 com/froi/sevlets/ClienteReporteCambioDinero.class
+com/froi/sevlets/exportar/ExportSolicitudesEnviadas.class
 com/froi/cajero/reportes/ListadoTransaccionesTurno.class
 com/froi/entidades/Gerente.class
 com/froi/sevlets/TransaccionCajeroDatos.class
@@ -58,7 +59,6 @@ com/froi/sevlets/ClienteRegistrar.class
 com/froi/sevlets/ActualizarGerente.class
 com/froi/sevlets/CerrarSesion.class
 com/froi/entidades/Transaccion.class
-.netbeans_automatic_build
 com/froi/sevlets/SolicitudDeAsociacionPendiente.class
 com/froi/lectores/LectorGerente.class
 com/froi/sevlets/CajeroRegistrar.class
