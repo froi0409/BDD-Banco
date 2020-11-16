@@ -26,7 +26,7 @@
             </c:when>
         </c:choose>
         
-        <form action="ActualizarGerente" method="POST">
+        <form action="ActualizarCajero" method="POST">
             <div class="pt-2 mt-5 mr-2"></div>
             <div class="container formulario pt-2"> 
                 <div class="row justify-content-center pt-1 mt-5 mr-1">

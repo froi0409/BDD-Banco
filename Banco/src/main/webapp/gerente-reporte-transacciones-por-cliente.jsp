@@ -29,7 +29,7 @@
             </c:when>
         </c:choose>
         <div align="center" style="padding-top: 100px;">
-            <h1>Reporte: Transacciones de Clientes con Filtro: <% out.print(request.getAttribute("filtro")); %></h1><br>
+            <h1>Reporte: Transacciones de Clientes con el Filtro "<% out.print(request.getAttribute("filtro")); %>"</h1><br>
             <h4>Q ${limiteInferior} - Q ${limiteSuperior}</h4>
         </div>
         <%

@@ -40,7 +40,7 @@
                 <div class="row justify-content-center ml-2 pt- mb-5 mr-1"> <!-- Utilizamos el sistema de filas de bootstrap -->
                     <div class="col-md-4">
                         <label for="limiteTransferencias">Limite Inferior:</label>
-                        <input type="number" step=".01" class="form-control" placeholder="xxxx.xx" name="limiteInferior" oninvalid="setCustomValidity('Cantidad monetaria inválida. Por favor, ingrese una cantidad monetaria válida.')" min="0.01" required/>
+                        <input type="number" step=".01" class="form-control" placeholder="xxxx.xx" name="limiteInferior" oninvalid="setCustomValidity('Cantidad monetaria inválida. Por favor, ingrese una cantidad monetaria válida.')" min="0.00" required/>
                     </div>
                     <div class="col-md-4">
                         <label for="limiteTransferenciasSumadas">Limite Superior:</label>

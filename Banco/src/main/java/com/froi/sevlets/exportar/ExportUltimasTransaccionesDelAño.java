@@ -49,8 +49,6 @@ public class ExportUltimasTransaccionesDelAño extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        
         try {
             
             response.setContentType("application/pdf");
