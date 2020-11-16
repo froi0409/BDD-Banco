@@ -25,8 +25,8 @@ public class CajeroConMasTransacciones extends ReporteTiempo {
      * Método que permite obtener los datos del cajero con más transacciones
      * @return ArrayList tipo String[] que contiene el nombre y la cantidad de transacciones que el cajero ha realizado
      */
-    public ArrayList<String[]> obtenerCajero() {
-        String datosCajero = "SELECT cajero,COUNT(cajero) FROM TRANSACCION WHERE fecha BETWEEN ? AND ? GROUP BY cajero ORDER BY COUNT(cajero) DESC LIMIT 1 ";
+    public String[] obtenerCajero() {
+        String datosCajero = "SELECT T.cajero,C.nombre,COUNT(T.cajero) FROM TRANSACCION T JOIN CAJERO C ON C.codigo=T.cajero WHERE T.fecha BETWEEN ? AND ? GROUP BY T.cajero ORDER BY COUNT(T.cajero) DESC LIMIT 1";
         ArrayList<String[]> lista = new ArrayList<>();
         
         try (PreparedStatement preSt = getConnection().prepareStatement(datosCajero)) {
@@ -37,13 +37,13 @@ public class CajeroConMasTransacciones extends ReporteTiempo {
             ResultSet result = preSt.executeQuery();
             result.next();
             
-            String[] datos = new String[2];
+            String[] datos = new String[3];
             
             datos[0] = result.getString(1);
             datos[1] = result.getString(2);
+            datos[2] = result.getString(3);
             
-            lista.add(datos);
-            return lista;
+            return datos;
         } catch (Exception e) {
             System.out.println("Error cajero con más transacciones: " + e.getMessage());
             return null;

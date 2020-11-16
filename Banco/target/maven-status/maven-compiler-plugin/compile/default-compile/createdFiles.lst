@@ -37,6 +37,7 @@ com/froi/entidades/Cliente.class
 com/froi/sevlets/TransaccionConfirmar.class
 com/froi/cliente/reportes/ReporteCuentaConMasDinero.class
 com/froi/ingresadores/IngresadorCliente.class
+com/froi/sevlets/VerificarLimites.class
 com/froi/gerente/reportes/ReporteClientesSinTransacciones.class
 com/froi/banco/GeneradorContraseña.class
 com/froi/lectores/LectorCajero.class
@@ -57,6 +58,7 @@ com/froi/sevlets/ClienteRegistrar.class
 com/froi/sevlets/ActualizarGerente.class
 com/froi/sevlets/CerrarSesion.class
 com/froi/entidades/Transaccion.class
+.netbeans_automatic_build
 com/froi/sevlets/SolicitudDeAsociacionPendiente.class
 com/froi/lectores/LectorGerente.class
 com/froi/sevlets/CajeroRegistrar.class
