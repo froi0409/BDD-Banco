@@ -78,4 +78,20 @@ public class Cajero extends Entidad {
         this.password = encriptador.encriptar(password);
     }
     
+    public String getHoraInicio(String turno){
+        if(turno.equalsIgnoreCase("VESPERTINO")){
+            return "13:00:00";
+        } else {
+            return "06:00:00";
+        }
+    }
+    
+    public String getHoraFinal(String turno){
+        if(turno.equalsIgnoreCase("VESPERTINO")){
+            return "22:00:00";
+        } else {
+            return "14:30:00";
+        }
+    }
+    
 }
