@@ -34,6 +34,13 @@
         %>
         <div class="container" align="center" style="margin-top: 100px">
             <h1>Cuenta con Más Dinero: <% out.println(codigoCuenta); %></h1><br>
+            
+            <div class="container-fluid" align="center">
+                <form action="ExportCuentaMasDinero" method="POST" style="padding-bottom: 50px;">
+                    <input type="submit" value="Descargar" class="btn btn-danger"/>
+                </form>
+            </div>
+            
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-secondary">
@@ -47,6 +54,7 @@
                 <tbody>
                     <%
                     ArrayList<String[]> transacciones = reporte.obtenerTransacciones(dpiCliente, request.getParameter("fechaInicial"));
+                    request.getSession().setAttribute("transacciones", transacciones);
                     System.out.println(request.getParameter("fechaInicial"));
                     for(String[] element: transacciones){
                         out.println("<tr>");

@@ -18,11 +18,14 @@ com/froi/sevlets/ActualizarCajeroDatos.class
 com/froi/sevlets/SolicitudDeAsociacionEnviar.class
 com/froi/sevlets/TransaccionDatos.class
 com/froi/banco/ReporteTiempo.class
+com/froi/banco/ConvertToList.class
 com/froi/ingresadores/IngresadorCuenta.class
 com/froi/cliente/RespuestaSolicitud.class
 com/froi/ingresadores/IngresadorCajero.class
 com/froi/sevlets/RetiroRealizar.class
 com/froi/banco/GeneradorCuenta.class
+com/froi/sevlets/exportar/ExportSolicitudesRecibidas.class
+com/froi/sevlets/exportar/ExportCuentaMasDinero.class
 com/froi/sevlets/ClienteReporteCambioDinero.class
 com/froi/sevlets/exportar/ExportSolicitudesEnviadas.class
 com/froi/cajero/reportes/ListadoTransaccionesTurno.class
@@ -46,10 +49,12 @@ com/froi/cajero/ObtenerDatosCajero.class
 com/froi/sevlets/RegistrarCuentaConfirmarCliente.class
 com/froi/banco/LectorXml.class
 com/froi/transaccion/TransaccionPortal.class
+com/froi/sevlets/exportar/ExportUltimasTransaccionesDelAño.class
 com/froi/gerente/reportes/ReporteClientesConMasDinero.class
 com/froi/banco/ArchivoDeEntrada.class
 com/froi/cliente/reportes/ReporteUltimasTransacciones.class
 com/froi/sevlets/TransaccionInicio.class
+com/froi/entidades/ColeccionDatos.class
 com/froi/sevlets/Apoyo.class
 com/froi/entidades/Cajero.class
 com/froi/lectores/Lector.class
@@ -81,4 +86,5 @@ com/froi/sevlets/RechazarSolicitud.class
 com/froi/lectores/LectorArchivo.class
 com/froi/banco/Conexion.class
 com/froi/sevlets/RegistrarCuenta.class
+com/froi/sevlets/exportar/ExportTransaccionesCambioDinero.class
 com/froi/banco/AnalizadorDeExistencia.class

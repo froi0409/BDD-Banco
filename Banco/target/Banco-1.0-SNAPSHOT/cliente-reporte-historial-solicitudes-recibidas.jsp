@@ -30,7 +30,12 @@
         <div align="center" style="padding-top: 100px;">
             <h1>Historial de Solicitudes de Asociación Recibidas</h1>
         </div>
-        <div class="container" align="center" style="margin-top: 100px; margin-bottom: 50px;">
+        <div class="container-fluid" align="center">
+            <form action="ExportSolicitudesRecibidas" method="POST" style="padding-top: 50px;">
+                <input type="submit" value="Descargar" class="btn btn-danger"/>
+            </form>
+        </div>
+        <div class="container" align="center" style="margin-top: 50px; margin-bottom: 50px;">
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-secondary">

@@ -29,6 +29,16 @@
         <div class="container" align="center" style="margin-top: 100px">
             <h1>Estado de Cuenta: <% out.println(request.getAttribute("codigoCuenta")); %></h1><br>
             <h4><% out.println(request.getAttribute("fechaInicial") + " - " + request.getAttribute("fechaFinal")); %></h4>
+            
+        <div class="container-fluid" align="center">
+          <form action="ExportTransaccionesCambioDinero" method="POST" style="padding-bottom: 50px;">
+              <% request.getSession().setAttribute("fechaInicial", request.getAttribute("fechaInicial"));
+                request.getSession().setAttribute("fechaFinal", request.getAttribute("fechaFinal"));
+                request.getSession().setAttribute("codigoCuenta", request.getAttribute("codigoCuenta"));
+              %>
+              <input type="submit" value="Descargar" class="btn btn-danger"/>
+          </form>
+      </div>
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-secondary">
@@ -44,6 +54,7 @@
                 <tbody>
                     <%
                     ArrayList<String[]> estadoCuenta = (ArrayList<String[]>) request.getAttribute("estadoCuenta");
+                    request.getSession().setAttribute("estadoCuenta", estadoCuenta);
                     
                     for(String[] element: estadoCuenta){
                         out.println("<tr>");

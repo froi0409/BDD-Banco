@@ -29,7 +29,12 @@
         </c:choose>
         <div align="center" style="padding-top: 100px;">
             <h1>Reporte: Últimas 15 Transacciones Del Año (Por Cada Cuenta)</h1>
+            <form action="ExportUltimasTransaccionesDelAnio" method="POST">
+                <input type="submit" value="Descargar" class="btn btn-danger"/>
+            </form>
         </div>
+        
+        
         <%
         
         ReporteUltimasTransacciones reporte = new ReporteUltimasTransacciones(Conexion.getConnection());
@@ -38,7 +43,7 @@
         
         for (String cuenta: cuentas) {
         %>    
-            <div class="container" align="center" style="margin-top: 100px; margin-bottom: 50px;">
+            <div class="container" align="center" style="margin-top: 50px; margin-bottom: 50px;">
             <h4>Transacciones: <% out.println(cuenta); %></h4><br>
             <table class="table table-bordered">
                 <thead>
