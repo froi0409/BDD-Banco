@@ -25,9 +25,8 @@ public class TransaccionPortal {
     
     /**
      * Método que permite llevar a cabo una transferencia
-     * @param cuentaOrigen Código de la cuenta que transferirá el dinero
-     * @param cuentaDestino Código de la cuenta que recibirá el dinero
      * @param dinero Cantidad monetaria que será transferida
+     * @param transaccion objeto transaccion
      * @return retorna true si la transferencia se pudo llevar a cabo
      */
     public boolean realizarTransferencia(double dinero, Transaccion transaccion) {
