@@ -136,4 +136,23 @@ public class ObtenerDatosCuenta {
         
     }
     
+    public double getCredito(String codigoCuenta){
+        
+        String query = "SELECT credito FROM CUENTA WHERE codigo=?";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            preSt.setString(1, codigoCuenta);
+            ResultSet result = preSt.executeQuery();
+            result.next();
+            
+            return result.getDouble(1);
+            
+        } catch (Exception e) {
+            System.out.println("Error getCredito: " + e.getMessage());
+            return 0;
+        }
+        
+    }
+    
 }

@@ -6,6 +6,7 @@
 package com.froi.sevlets;
 
 import com.froi.banco.Conexion;
+import com.froi.cuenta.ObtenerDatosCuenta;
 import com.froi.entidades.Transaccion;
 import com.froi.transaccion.TransaccionCajero;
 import java.io.IOException;
@@ -52,10 +53,12 @@ public class RetiroRealizar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        ObtenerDatosCuenta datosCuenta = new ObtenerDatosCuenta(Conexion.getConnection());
         TransaccionCajero retiro = new TransaccionCajero(Conexion.getConnection());
         Transaccion transaccion = new Transaccion();
         String codigoCajero = request.getSession().getAttribute("usuario").toString();
         String codigoCuenta = request.getSession().getAttribute("codigoCuenta").toString();
+        double creditoCuenta = datosCuenta.getCredito(codigoCuenta);
         
         LocalDateTime locaDate = LocalDateTime.now();
         int hora  = locaDate.getHour();
@@ -83,14 +86,22 @@ public class RetiroRealizar extends HttpServlet {
         request.getSession().removeAttribute("monto");
         request.getSession().removeAttribute("dpiPropietario");
         
-        if (retiro.realizar(transaccion, monto,"DEBITO")) {
-            request.setAttribute("mensaje", "¡¡¡Retiro de -Q " + dinero + " de la cuenta " + codigoCuenta + " realizado con éxito!!!");
-            request.getRequestDispatcher("cajero-retiro-cliente.jsp").forward(request, response);
+        System.out.println("----------------------------");
+        System.out.println(creditoCuenta);
+        System.out.println(monto*-1);
+        
+        if (creditoCuenta >= (monto*-1)) {
+            if (retiro.realizar(transaccion, monto,"DEBITO")) {
+                request.setAttribute("mensaje", "¡¡¡Retiro de -Q " + dinero + " de la cuenta " + codigoCuenta + " realizado con éxito!!!");
+                request.getRequestDispatcher("cajero-retiro-cliente.jsp").forward(request, response);
+            } else {
+                request.setAttribute("mensaje", "Error: Hubo un error al realizar la transferencia");
+                request.getRequestDispatcher("cajero-retiro-cliente.jsp").forward(request, response);
+            }
         } else {
-            request.setAttribute("mensaje", "Error: Hubo un error al realizar la transferencia");
+            request.setAttribute("mensaje", "Error: Usted no posee la cantidad de Q " + dinero + "en su cuenta, por lo tanto no se pudo proceder con el retiro");
             request.getRequestDispatcher("cajero-retiro-cliente.jsp").forward(request, response);
         }
-        
         
     }
 
