@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/10/2020, 10:43:29
+    Author     : froi-pc
+*/
+
+.formulario{
+    background: rgba(205,205,205,0.0568);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    
+}
+.formularioRegistro{
+    padding: 10px;
+}
+.ingresar{
+    padding: 10px;
+}
