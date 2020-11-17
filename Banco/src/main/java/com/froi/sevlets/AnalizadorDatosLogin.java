@@ -58,6 +58,8 @@ public class AnalizadorDatosLogin extends HttpServlet {
                 request.getRequestDispatcher("inicio-sesion.jsp").forward(request, response);
             }
             
+            System.out.println(usuario + "    " + password);
+            
             if (analizador.credenciales("CLIENTE", usuario, password)) { //analiza si las credenciales corresponden a las de un cliente
                 ObtenerDatosCliente obtener = new ObtenerDatosCliente(Conexion.getConnection());
                 
