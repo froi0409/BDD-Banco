@@ -44,11 +44,12 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr class="table-secondary">
-                            <th scope="col">Cuenta Solicitada</th>
-                            <th scope="col">Propietario de la Cuenta</th>
-                            <th scope="col">Estado de Solicitud</th>
-                            <th scope="col">Intentos</th>
-                            <th scope="col">Fecha de Respuesta</th>
+                            <th scope="col">Código Transacción</th>
+                            <th scope="col">Cuenta</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Monto</th>
                           </tr>
                         </thead>
                         <tbody>

@@ -67,7 +67,7 @@
         </form>
         
         <div style="margin-top: 100px; margin-bottom: 100px; padding-left: 300px; padding-right: 300px;n" class="container-fluid">
-            <h4>Datos del Cliente:</h4>
+            <h4>Datos del Cajero:</h4>
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-secondary">

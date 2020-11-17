@@ -34,6 +34,7 @@ com/froi/sevlets/TransaccionCajeroDatos.class
 com/froi/entidades/Estructura.class
 com/froi/lectores/LectorTransaccion.class
 com/froi/cajero/ActualizarDatoCajero.class
+com/froi/sevlets/exportar/ExportHistorialCambiosCliente.class
 com/froi/sevlets/ActualizarCliente.class
 com/froi/sevlets/AnalizadorDatosLogin.class
 com/froi/gerente/ObtenerDatosGerente.class
@@ -59,6 +60,7 @@ com/froi/sevlets/Apoyo.class
 com/froi/entidades/Cajero.class
 com/froi/lectores/Lector.class
 com/froi/gerente/reportes/CajeroConMasTransacciones.class
+com/froi/sevlets/VerificarHorarioCajero.class
 com/froi/cliente/reportes/ReporteTransaccionesTiempo.class
 com/froi/sevlets/ClienteRegistrar.class
 com/froi/sevlets/ActualizarGerente.class

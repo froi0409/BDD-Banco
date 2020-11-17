@@ -3,6 +3,7 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/ingresadores/IngresadorCajero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/ClienteReporteCambioDinero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/TransaccionInicio.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/VerificarHorarioCajero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/gerente/ObtenerDatosGerente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/RegistrarCuentaConfirmarCliente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/ingresadores/IngresadorCliente.java
@@ -79,6 +80,7 @@
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/exportar/ExportTransaccionesCambioDinero.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/cliente/reportes/ReporteUltimasTransacciones.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/exportar/ExportCuentaMasDinero.java
+/home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/exportar/ExportHistorialCambiosCliente.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/sevlets/exportar/ExportSolicitudesRecibidas.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/gerente/reportes/ReporteClienteTransaccionesSumadas.java
 /home/froi-pc/Documentos/CUNOC/Proyectos IPC 2/BDD-Banco/Banco/src/main/java/com/froi/entidades/Cajero.java
