@@ -62,7 +62,7 @@ public class ExportSolicitudesEnviadas extends HttpServlet {
             
             ArrayList<String[]> historialEnviadas = historial.obtener(dpiCliente);
 
-       ConvertToList convertidor = new ConvertToList();
+            ConvertToList convertidor = new ConvertToList();
             
 
             List<ColeccionDatos> lista = convertidor.getArrayList(historialEnviadas);;

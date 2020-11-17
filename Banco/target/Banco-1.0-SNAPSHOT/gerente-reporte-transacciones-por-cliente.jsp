@@ -32,9 +32,19 @@
             <h1>Reporte: Transacciones de Clientes con el Filtro "<% out.print(request.getAttribute("filtro")); %>"</h1><br>
             <h4>Q ${limiteInferior} - Q ${limiteSuperior}</h4>
         </div>
+        <div align="center" style="padding-top: 50px;">
+            <form action="ExportListaClientesFiltros" method="POST">
+                <input type="submit" value="Descargar" class="btn btn-danger"/>
+            </form>
+        </div>
         <%
         
         HistorialTransaccionesPorCliente reporte = new HistorialTransaccionesPorCliente(Conexion.getConnection(), Double.parseDouble(request.getAttribute("limiteInferior").toString()), Double.parseDouble(request.getAttribute("limiteSuperior").toString()));
+            
+        request.getSession().setAttribute("limiteInferior", request.getAttribute("limiteInferior").toString());
+        request.getSession().setAttribute("limiteSuperior", request.getAttribute("limiteSuperior").toString());
+        request.getSession().setAttribute("filtro", request.getAttribute("filtro").toString());
+        
         ArrayList<String[]> clientes = reporte.obtenerClientes(request.getAttribute("filtro").toString());
         
         for (String[] cliente: clientes) {

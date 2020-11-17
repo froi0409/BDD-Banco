@@ -30,11 +30,16 @@
         
         <% 
             CajeroConMasTransacciones cajero = new CajeroConMasTransacciones(Conexion.getConnection(), request.getParameter("fechaInicial"), request.getParameter("fechaFinal")); 
+            request.getSession().setAttribute("fechaInicial", request.getParameter("fechaInicial"));
+            request.getSession().setAttribute("fechaFinal", request.getParameter("fechaFinal"));
             String[] cajeroDatos = cajero.obtenerCajero();
         %>
         <div align="center" style="padding-top: 100px;">
             <h1>Cajero con Más transacciones: <% out.print(cajeroDatos[0] + " - " + cajeroDatos[1]); %></h1><br>
-            <h4>Cantidad de Transacciones: <% out.print(cajeroDatos[2]); %></h4>
+            <h4>Cantidad de Transacciones: <% out.print(cajeroDatos[2]); %></h4><br>
+            <form action="ExportCajeroMasTransacciones" method="POST">
+            <input type="submit" value="Descargar" class="btn btn-danger"/>
+        </form>
         </div>
         <div class="container" align="center" style="margin-top: 100px; margin-bottom: 50px;">
             <table class="table table-bordered">

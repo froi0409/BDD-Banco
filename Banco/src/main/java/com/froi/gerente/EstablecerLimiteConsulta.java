@@ -28,8 +28,8 @@ public class EstablecerLimiteConsulta {
      * @return true si el limite es actualizado o establecido con éxito, de lo contrario retorna false
      */
     public boolean establecerLimites(double limite1, double limite2) {
-        String update = "UPDATE LIMITES_CONSULTA SET limite_1=?, limite_2=? WHERE codigo = 0";
-        String insert = "INSERT INTO LIMITES_CONSULTA VALUES (0,?,?)";
+        String update = "UPDATE LIMITES_CONSULTA SET limite_1=?, limite_2=? WHERE codigo = 1";
+        String insert = "INSERT INTO LIMITES_CONSULTA VALUES (1,?,?)";
         String query = "SELECT COUNT(*) FROM LIMITES_CONSULTA";
         
         try (PreparedStatement preSt = connection.prepareStatement(query);

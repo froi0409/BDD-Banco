@@ -78,4 +78,26 @@ public class ReporteClienteTransacciones {
         }
     }
     
+    /**
+     * Permite obtener el limite del reporte
+     * @return Límite del reporte
+     */
+    public String getLimite(){
+        
+        String query = "SELECT limite_1 FROM LIMITES_CONSULTA";
+        
+        try (PreparedStatement preSt = connection.prepareStatement(query)) {
+            
+            ResultSet result = preSt.executeQuery();
+            result.next();
+            
+            return result.getString(1);
+            
+        } catch (Exception e) {
+            System.out.println("Error al Obtener Límite: " + e.getMessage());
+            return null;
+        }
+        
+    }
+    
 }

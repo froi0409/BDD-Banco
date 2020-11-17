@@ -33,6 +33,11 @@
             <h1>Clientes Que No Han Realizado Transacciones:</h1>
             <h4><% out.println(request.getParameter("fechaInicial") + " - " + request.getParameter("fechaFinal")); %></h4>
         </div>
+        <div class="container-fluid" align="center">
+            <form action="ExportClientesSinTransacciones" method="POST" style="padding-top: 50px;">
+                <input type="submit" value="Descargar" class="btn btn-danger"/>
+            </form>
+        </div>
         <div class="container" align="center" style="margin-top: 100px; margin-bottom: 50px;">
             <table class="table table-bordered">
                 <thead>
@@ -44,7 +49,8 @@
                 <tbody>
                     <%
                     ReporteClientesSinTransacciones reporte = new ReporteClientesSinTransacciones(Conexion.getConnection(), request.getParameter("fechaInicial"), request.getParameter("fechaFinal"));
-                    
+                    request.getSession().setAttribute("fechaInicial",request.getParameter("fechaInicial"));
+                    request.getSession().setAttribute("fechaFinal",request.getParameter("fechaFinal"));
                     ArrayList<String[]> clientesSinTrnsferencias = reporte.obtener();
                     
                     for(String[] element: clientesSinTrnsferencias){

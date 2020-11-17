@@ -27,10 +27,15 @@
                 </div>
             </c:when>
         </c:choose>
-        
+        <% ReporteClienteTransacciones reporte = new ReporteClienteTransacciones(Conexion.getConnection());%>
         
         <div align="center" style="padding-top: 100px;">
-            <h1>Clientes con Transacciones Mayores a Limite</h1>
+            <h1>Clientes con Transacciones Mayores a Limite: Q <% out.print(reporte.getLimite()); %></h1>
+        </div>
+        <div class="container-fluid" align="center">
+            <form action="ExportTransaccionesMayoresALimite" method="POST" style="padding-top: 50px;">
+                <input type="submit" value="Descargar" class="btn btn-danger"/>
+            </form>
         </div>
         <div class="container" align="center" style="margin-top: 100px; margin-bottom: 50px;">
             <table class="table table-bordered">
@@ -47,7 +52,6 @@
                 </thead>
                 <tbody>
                     <%
-                    ReporteClienteTransacciones reporte = new ReporteClienteTransacciones(Conexion.getConnection());
                     
                     ArrayList<String[]> transaccionesMayoresLimite = reporte.obtener();
                     
