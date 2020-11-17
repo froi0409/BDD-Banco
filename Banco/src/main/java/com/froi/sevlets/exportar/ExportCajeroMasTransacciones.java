@@ -71,7 +71,7 @@ public class ExportCajeroMasTransacciones extends HttpServlet {
 
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("DatosCajero", cajeroDatos[0] + " - " + cajeroDatos[1]);
-            parameters.put("Fecha", "Cantidad de Transacciones: " + cajeroDatos[2] + " del " + fechaInicial + " al " + fechaFinal);
+            parameters.put("Fecha", "Transacciones: " + cajeroDatos[2] + " del " + fechaInicial + " al " + fechaFinal);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReports, parameters, dataSource);
             JasperExportManager.exportReportToPdfStream(jasperPrint, response.getOutputStream());
 

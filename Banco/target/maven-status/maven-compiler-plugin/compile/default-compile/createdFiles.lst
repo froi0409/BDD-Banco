@@ -53,6 +53,7 @@ com/froi/sevlets/exportar/ExportCajeroMasTransacciones.class
 com/froi/sevlets/RechazarSolicitud.class
 com/froi/lectores/LectorArchivo.class
 com/froi/sevlets/RegistrarCuenta.class
+com/froi/sevlets/ExportTransaccionesTurnoDia.class
 com/froi/banco/AnalizadorDeExistencia.class
 com/froi/cliente/ObtenerDatosCliente.class
 com/froi/cliente/EnviarSolicitud.class
@@ -78,6 +79,7 @@ com/froi/lectores/LectorCajero.class
 com/froi/sevlets/RegistrarCuentaConfirmarCliente.class
 com/froi/banco/LectorXml.class
 com/froi/sevlets/exportar/ExportUltimasTransaccionesDelAño.class
+com/froi/sevlets/exportar/ExportTransaccionesPorDia.class
 com/froi/cliente/reportes/ReporteUltimasTransacciones.class
 com/froi/entidades/ColeccionDatos.class
 com/froi/lectores/Lector.class

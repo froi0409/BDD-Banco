@@ -88,7 +88,7 @@ public class Cajero extends Entidad {
     
     public String getHoraFinal(String turno){
         if(turno.equalsIgnoreCase("VESPERTINO")){
-            return "22:00:00";
+            return "23:59:00";
         } else {
             return "14:30:00";
         }

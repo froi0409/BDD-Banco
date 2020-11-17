@@ -25,6 +25,7 @@
         String fechaInicial = request.getParameter("fechaInicial");
         String fechaFinal = request.getParameter("fechaFinal");
         String codigoCajero = request.getSession().getAttribute("usuario").toString();
+        
         ListadoTransaccionesPorDia reporte = new ListadoTransaccionesPorDia(Conexion.getConnection(), fechaInicial, fechaFinal);
         %>
         <c:choose>
@@ -39,7 +40,7 @@
             <h1>Transacciones Realizadas por Día</h1><br>
             <h4><% out.println(fechaInicial + " - " + fechaFinal); %></h4>
         <div class="container-fluid" align="center">
-          <form action="ExportTransaccionesCambioDinero" method="POST" style="padding-bottom: 50px;">
+          <form action="ExportTransaccionesPorDia" method="POST" style="padding-bottom: 50px;">
               <% request.getSession().setAttribute("fechaInicial", request.getParameter("fechaInicial"));
                 request.getSession().setAttribute("fechaFinal", request.getParameter("fechaFinal"));
               %>

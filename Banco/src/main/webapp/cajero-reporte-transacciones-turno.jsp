@@ -36,7 +36,7 @@
                     <h3>Total Caja: <% out.println("Q " + reporte.totalCaja(codigoCajero)); %></h3>
                 </div>
                 <div class="container-fluid" align="center">
-                    <form action="" method="POST" style="padding-top: 50px;">
+                    <form action="ExportTransaccionesTurnoDia" method="POST" style="padding-top: 50px;">
                         <input type="submit" value="Descargar" class="btn btn-danger"/>
                     </form>
                 </div>
@@ -64,7 +64,7 @@
                                 out.println("<td>" + element[2] + "</td>");
                                 out.println("<td>" + element[3] + "</td>");
                                 out.println("<td>" + element[4] + "</td>");
-                                out.println("<td>" + element[4] + "</td>");
+                                out.println("<td>" + element[5] + "</td>");
                                 out.println("</tr>");
                             }
                             %>

@@ -82,12 +82,14 @@ public class ListadoTransaccionesTurno {
             String horaInicio = cajero.getHoraInicio(turno.getString(1));
             String horaFin = cajero.getHoraFinal(turno.getString(1));
             
+            System.out.println(horaInicio);
+            System.out.println(horaFin);
+            
             preSt.setString(1, codigoCajero);
             preSt.setString(2, horaInicio);
             preSt.setString(3, horaFin);
             
             ResultSet result = preSt.executeQuery();
-            result.next();
             
             if(result.next()) {
                 return result.getString(1);
